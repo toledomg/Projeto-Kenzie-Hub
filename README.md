@@ -1,3 +1,15 @@
+# S2-16 | 🏁 Entrega - Projeto: Hamburgueria da Kenzie
+
+- [URL VERCEL](https://kenzie-hub-toledomg.vercel.app/)
+
+- [URL Repo GIT](https://github.com/Kenzie-Academy-Brasil-Developers/react-entrega-template-hamburgueria-da-kenzie-toledomg)
+
+- [URL FIGMA](https://www.figma.com/file/Nx4WZEFXnHzeFsxRaw8y18/M3---1B07---Entrega---Hamburgueria-da-Kenzie?node-id=0%3A1&t=Qq7qkngQctyHHdcW-0)
+
+- [URL Pages](https://laughing-adventure-wlojqme.pages.github.io/)
+
+#
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
