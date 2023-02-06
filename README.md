@@ -2,11 +2,13 @@
 
 - [URL VERCEL](https://kenzie-hub-toledomg.vercel.app/)
 
-- [URL Repo GIT](https://github.com/Kenzie-Academy-Brasil-Developers/react-entrega-template-hamburgueria-da-kenzie-toledomg)
+- [URL API](https://github.com/Kenzie-Academy-Brasil-Developers/kenziehub-api)
 
-- [URL FIGMA](https://www.figma.com/file/Nx4WZEFXnHzeFsxRaw8y18/M3---1B07---Entrega---Hamburgueria-da-Kenzie?node-id=0%3A1&t=Qq7qkngQctyHHdcW-0)
+- [URL Pages](https://urban-adventure-693q8oe.pages.github.io/)
 
-- [URL Pages](https://laughing-adventure-wlojqme.pages.github.io/)
+- [URL Repo GIT](https://github.com/Kenzie-Academy-Brasil-Developers/react-entrega-kenzie-hub-toledomg)
+
+- [URL FIGMA](https://www.figma.com/file/ccZ4uMlJtuBQISDzCCI1Vq/Kenzie-Hub?node-id=13099%3A314&t=O1cXUsqqO0O5LvFn-0)
 
 #
 
