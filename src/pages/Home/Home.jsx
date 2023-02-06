@@ -1,7 +1,7 @@
 import React from "react";
 import { HomeSection } from "./style/style";
 import { BtnDefault, BtnMedium } from "./../../style/Global/Buttons";
-import FormLogin from "./../../components/Main/Form/Form";
+import FormLogin from "../../components/Main/Form/FormLogin";
 
 function Home() {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import { BtnDefault } from "./../../../style/Global/Buttons";
+import { BtnDefault } from "../../../style/Global/Buttons";
 import { FormCreate } from "./FomCreate";
 
 function FormLogin() {
