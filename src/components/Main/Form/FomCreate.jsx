@@ -14,7 +14,7 @@ export const FormCreate = styled.form`
 
   color: var(--color-gray-1);
 
-  gap: 15px;
+  gap: 20px;
 
   input {
     width: 265px;
@@ -32,7 +32,7 @@ export const FormCreate = styled.form`
     color: var(--color-gray-1);
 
     background: var(--color-gray-2);
-    border: 1px solid var(--color-gray-0);
+    border: none;
     border-radius: 4px;
 
     padding: 0px 14px;

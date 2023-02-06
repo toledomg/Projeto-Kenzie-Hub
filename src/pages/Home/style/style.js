@@ -39,10 +39,10 @@ export const HomeSection = styled.section`
   div > h1 {
     font-style: normal;
     font-weight: 700;
-    font-size: 14.439px;
+    font-size: 15px;
     line-height: 22px;
 
-    color: var(--color-gray-1);
+    color: var(--color-gray-0);
   }
 
   div > span {
