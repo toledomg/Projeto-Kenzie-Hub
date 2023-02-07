@@ -9,7 +9,7 @@ export const FormCreate = styled.form`
 
   font-style: normal;
   font-weight: 400;
-  font-size: 9.772px;
+  font-size: 10px;
   line-height: 0px;
 
   color: var(--color-gray-1);
