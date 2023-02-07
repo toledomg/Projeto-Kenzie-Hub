@@ -6,7 +6,10 @@ export const NotFound = styled.div`
 
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
+
+  gap: 20px;
 
   h1 {
     font-size: 20px;

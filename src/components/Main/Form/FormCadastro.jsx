@@ -3,9 +3,15 @@ import { BtnDefault } from "../../../style/Global/Buttons";
 import { FormCreate } from "./FomCreate";
 import SelectCreate from "./../Select/SelectCreate";
 
-function FormCadastro() {
+function FormCadastro({ navigate }) {
+  const handleEvent = (event) => {
+    event.preventDefault();
+
+    navigate("/home");
+  };
+
   return (
-    <FormCreate>
+    <FormCreate onSubmit={handleEvent}>
       <label htmlFor="name">Nome</label>
       <input
         type="name"
