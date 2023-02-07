@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import { CadSection } from "./style/style";
+import { CadSection } from "./style";
 import { BtnDefault, BtnMedium, BtnText } from "./../../style/Global/Buttons";
 import FormCadastro from "./../../components/Main/Form/FormCadastro";
 

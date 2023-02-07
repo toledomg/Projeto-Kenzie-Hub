@@ -50,7 +50,7 @@ export const CadSection = styled.section`
 
     border-radius: 4px;
     padding: 34px 18px;
-    gap: 30px;
+    gap: 20px;
 
     select {
       width: 100%;
