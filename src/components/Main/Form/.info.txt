@@ -17,3 +17,5 @@ Validação de senha com regex.
         Não permitir sequência igual (aa, bb, 44, etc)
 
         ^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\1)){8,}$/i
+
+//
