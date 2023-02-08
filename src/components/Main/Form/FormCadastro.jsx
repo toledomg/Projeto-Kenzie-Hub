@@ -63,6 +63,12 @@ function FormCadastro({ navigate }) {
     }
   };
 
+  const handleEvent = (event) => {
+    event.preventDefault();
+
+    navigate("/home");
+  };
+
   return (
     <FormCreate onSubmit={handleSubmit(onSubmitFunction)}>
       <label htmlFor="name">Nome</label>
@@ -117,13 +123,7 @@ function FormCadastro({ navigate }) {
       <SelectCreate register={register} />
       {errors.course_module?.message}
 
-      <BtnDefault
-        type="submit"
-        // disabled={true}
-      >
-        Cadastrar
-      </BtnDefault>
-      {/* <Link to="/home">Cadastrar</Link> */}
+      <BtnDefault type="submit">Cadastrar</BtnDefault>
     </FormCreate>
   );
 }
