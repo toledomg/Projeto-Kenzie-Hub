@@ -19,3 +19,6 @@ Validação de senha com regex.
         ^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\1)){8,}$/i
 
 //
+
+Padrão de instalação de bibliotecas.
+yarn add axios react-icons react-router-dom react-scripts web-vitals react-toastify styled-components react-hook-form yup
