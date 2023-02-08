@@ -1,13 +1,11 @@
 import React from "react";
 
-function SelectCreate() {
+function SelectCreate({ errors, register }) {
   return (
     <>
       <label htmlFor="selectModulo">Selecionar módulo</label>
-      <select name="selectModulo">
-        <option value="" selected>
-          Selecionar módulo
-        </option>
+      <select {...register("modulo")}>
+        <option value="">Selecionar módulo</option>
         <option id="m1" value="m1">
           M1
         </option>

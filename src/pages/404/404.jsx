@@ -1,4 +1,5 @@
 import { React } from "react";
+import { Link } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
 import { BtnText } from "../../style/Global/Buttons";
@@ -11,7 +12,7 @@ function NotFoundPage() {
   return (
     <NotFound>
       <h1>404 - Page Not Found</h1>
-      <BtnText onClick={backHomePage}>Voltar</BtnText>
+      <Link to="/home">Voltar</Link>
     </NotFound>
   );
 }

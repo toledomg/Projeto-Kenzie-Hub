@@ -66,4 +66,46 @@ export const HomeSection = styled.section`
 
     padding: 0 10px;
   }
+
+  a {
+    width: 100%;
+    max-width: 260px;
+    height: 39px;
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 21px;
+
+    padding: 0 10px;
+  }
+
+  div > div > a {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    color: var(--color-gray-0);
+
+    padding: 0px 17px;
+    gap: 10px;
+
+    background: var(--color-gray-1);
+
+    border: 1px solid var(--color-gray-1);
+    border-radius: 4px;
+
+    :hover {
+      background: var(--color-gray-2);
+
+      border: 1px solid var(--color-gray-2);
+    }
+  }
 `;

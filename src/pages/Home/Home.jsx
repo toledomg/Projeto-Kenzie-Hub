@@ -1,8 +1,7 @@
 import React from "react";
-import { HomeSection } from "./style/style";
-import { BtnDefault, BtnMedium } from "./../../style/Global/Buttons";
+import { HomeSection } from "./style";
 import FormLogin from "../../components/Main/Form/FormLogin";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
@@ -17,7 +16,7 @@ function Home() {
         <FormLogin />
         <div>
           <span>Ainda não possui uma conta?</span>
-          <BtnMedium onClick={CadPage}>Cadastre-se</BtnMedium>
+          <Link to="/cadastro">Cadastre-se</Link>
         </div>
       </div>
     </HomeSection>
