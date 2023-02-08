@@ -29,8 +29,8 @@ function FormCadastro({ navigate }) {
       .string()
       .required("Senha é obrigatório.")
       .matches(
-        "^[^W_]{6}$",
-        "A Senha deve conter letras e números e no mínimo 6 caracteres"
+        "^(?=.*[A-Z])(?=.*[!#@$%&])(?=.*[0-9])(?=.*[a-z]).{8,}$",
+        "Deve conter no mínimo uma letras minúsculas e maiúsculas, um números, um caractere especial e no mínimo 8 caracteres"
       ),
 
     passwordConfirm: yup
