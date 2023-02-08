@@ -4,31 +4,19 @@ function SelectCreate({ errors, register }) {
   return (
     <>
       <label htmlFor="selectModulo">Selecionar módulo</label>
-      <select {...register("modulo")}>
+      <select {...register("course_module")}>
         <option value="">Selecionar módulo</option>
-        <option id="m1" value="m1">
-          M1
+        <option id="m1" value="Primeiro módulo (Introdução ao Frontend)">
+          Primeiro módulo (Introdução ao Frontend)
         </option>
-        <option id="m2" value="m2">
-          M2
+        <option id="m2" value="Segundo módulo (Frontend Avançado)">
+          Segundo módulo (Frontend Avançado)
         </option>
-        <option id="m3" value="m3">
-          M3
+        <option id="m3" value="Terceiro módulo (Introdução ao Backend)">
+          Terceiro módulo (Introdução ao Backend)
         </option>
-        <option id="m4" value="m4">
-          M4
-        </option>
-        <option id="m5" value="m5">
-          M5
-        </option>
-        <option id="m6" value="m6">
-          M6
-        </option>
-        <option id="m7" value="m7">
-          M7
-        </option>
-        <option id="m8" value="m8">
-          M8
+        <option id="m4" value=" Quarto módulo (Backend Avançado)">
+          Quarto módulo (Backend Avançado)
         </option>
       </select>
     </>

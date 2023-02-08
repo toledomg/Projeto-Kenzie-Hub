@@ -4,22 +4,35 @@ import { Link } from "react-router-dom";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { ReactInputMask } from "react-input-mask";
 
-import { BtnDefault, BtnMedium, BtnText } from "../../../style/Global/Buttons";
+import { BtnDefault } from "../../../style/Global/Buttons";
 
 import { FormCreate } from "./FomCreate";
 import SelectCreate from "./../Select/SelectCreate";
 
+// const direction = useNavigate();
+// direction("/login");
+
 function FormCadastro({ navigate }) {
   const formSchema = yup.object().shape({
-    name: yup.string().required("Nome é obrigatório."),
+    name: yup
+      .string()
+      .required("Nome é obrigatório.")
+      .matches("[a-z][a-zA-Z0-9]{9,}", "Deve conter mínimo 10 caracteres"),
 
     email: yup
       .string()
       .required("E-mail é obrigatório.")
       .email("E-mail inválido."),
 
-    password: yup.string().required("Senha é obrigatório."),
+    password: yup
+      .string()
+      .required("Senha é obrigatório.")
+      .matches(
+        "^[^W_]{6}$",
+        "A Senha deve conter letras e números e no mínimo 6 caracteres"
+      ),
 
     passwordConfirm: yup
       .string()
@@ -28,9 +41,9 @@ function FormCadastro({ navigate }) {
 
     bio: yup.string().required("Bio é obrigatório."),
 
-    contato: yup.string().required("Contato é obrigatório."),
+    contact: yup.string().url("Linkedin é obrigatório."),
 
-    modulo: yup.string().required("Selecione 1 modulo por favor."),
+    course_module: yup.string().required("Selecione 1 modulo por favor."),
   });
 
   const {
@@ -92,18 +105,23 @@ function FormCadastro({ navigate }) {
         placeholder="Fale sobre você"
       />
       {errors.bio?.message}
-      <label htmlFor="contato">Opção de Contato</label>
+      <label htmlFor="contact">Linkedin:</label>
       <input
         type="text"
-        {...register("contato")}
-        id="contato"
-        placeholder="Opção de contato"
+        {...register("contact")}
+        id="contact"
+        placeholder="http://linkedin/in/user"
       />
-      {errors.contato?.message}
+      {errors.contact?.message}
       <SelectCreate register={register} />
-      {errors.modulo?.message}
+      {errors.course_module?.message}
 
-      <BtnDefault type="submit">Cadastrar</BtnDefault>
+      <BtnDefault
+        type="submit"
+        // disabled={true}
+      >
+        Cadastrar
+      </BtnDefault>
       {/* <Link to="/home">Cadastrar</Link> */}
     </FormCreate>
   );
