@@ -2,10 +2,11 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../../services/api";
 
+import { toast } from "react-toastify";
+
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { ReactInputMask } from "react-input-mask";
 
 import { BtnDefault } from "../../../style/Global/Buttons";
 
@@ -54,13 +55,21 @@ function FormCadastro({ navigate }) {
 
   const onSubmitFunction = async (data) => {
     console.log(data);
-
     try {
       const response = await api.post("users", data);
       console.log(response);
+      navigate("/");
+      toast.success("Cadastro realizado com sucesso");
     } catch (error) {
       console.error(error);
+      toast.error("Algo deu errado");
     }
+  };
+
+  const handleEvent = (event) => {
+    event.preventDefault();
+
+    navigate("/home");
   };
 
   return (
@@ -117,13 +126,7 @@ function FormCadastro({ navigate }) {
       <SelectCreate register={register} />
       {errors.course_module?.message}
 
-      <BtnDefault
-        type="submit"
-        // disabled={true}
-      >
-        Cadastrar
-      </BtnDefault>
-      {/* <Link to="/home">Cadastrar</Link> */}
+      <BtnDefault type="submit">Cadastrar</BtnDefault>
     </FormCreate>
   );
 }
