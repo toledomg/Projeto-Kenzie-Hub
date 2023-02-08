@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { api } from "../../../services/api";
 
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -10,9 +11,6 @@ import { BtnDefault } from "../../../style/Global/Buttons";
 
 import { FormCreate } from "./FomCreate";
 import SelectCreate from "./../Select/SelectCreate";
-
-// const direction = useNavigate();
-// direction("/login");
 
 function FormCadastro({ navigate }) {
   const formSchema = yup.object().shape({
@@ -54,12 +52,15 @@ function FormCadastro({ navigate }) {
     resolver: yupResolver(formSchema),
   });
 
-  const onSubmitFunction = (data) => console.log(data);
+  const onSubmitFunction = async (data) => {
+    console.log(data);
 
-  const handleEvent = (event) => {
-    event.preventDefault();
-
-    navigate("/home");
+    try {
+      const response = await api.post("users", data);
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
