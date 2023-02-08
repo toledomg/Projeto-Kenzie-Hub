@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CadSection = styled.section`
   width: 100%;
-  height: 100%;
+  height: 100vh;
 
   color: var(--color-gray-1);
 
@@ -25,22 +25,49 @@ export const CadSection = styled.section`
 
     padding: 5px;
     gap: 10px;
+  }
 
-    button {
-      width: 68px;
-      height: 40px;
+  section > a {
+    box-sizing: border-box;
+
+    width: 100px;
+    height: 32px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 28px;
+    color: var(--color-gray-0);
+
+    padding: 0px 17px;
+    gap: 10px;
+
+    background: var(--color-gray-3);
+
+    border: 1px solid var(--color-gray-3);
+    border-radius: 4px;
+
+    :hover {
+      background: var(--color-gray-2);
+
+      border: 1px solid var(--color-gray-2);
     }
   }
 
   h1 {
     color: var(--color-primary);
 
-    font-size: 30px;
+    font-size: 25px;
   }
 
   div {
     width: 296px;
-    height: 710px;
+    height: auto;
 
     display: flex;
     flex-direction: column;

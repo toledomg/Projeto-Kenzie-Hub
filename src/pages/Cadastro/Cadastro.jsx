@@ -1,8 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { CadSection } from "./style";
-import { BtnDefault, BtnMedium, BtnText } from "./../../style/Global/Buttons";
 import FormCadastro from "./../../components/Main/Form/FormCadastro";
 
 function Cadastro() {
@@ -14,7 +13,7 @@ function Cadastro() {
     <CadSection>
       <section>
         <h1>Kenzie Hub</h1>
-        <BtnText onClick={backPage}>Voltar</BtnText>
+        <Link to="/home">Voltar</Link>
       </section>
       <div>
         <h1>Crie sua conta</h1>

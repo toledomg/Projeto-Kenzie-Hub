@@ -15,4 +15,36 @@ export const NotFound = styled.div`
     font-size: 20px;
     color: var(--color-gray-0);
   }
+
+  a {
+    box-sizing: border-box;
+
+    width: 100px;
+    height: 32px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 28px;
+    color: var(--color-gray-0);
+
+    padding: 0px 17px;
+    gap: 10px;
+
+    background: var(--color-gray-3);
+
+    border: 1px solid var(--color-gray-3);
+    border-radius: 4px;
+
+    :hover {
+      background: var(--color-gray-2);
+
+      border: 1px solid var(--color-gray-2);
+    }
+  }
 `;
