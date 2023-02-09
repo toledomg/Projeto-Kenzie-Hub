@@ -2,7 +2,6 @@ import React from "react";
 import { HomeSection } from "./style";
 import FormLogin from "../../components/Main/Form/FormLogin";
 import { Link, useNavigate } from "react-router-dom";
-import { api } from "../../services/api";
 
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
