@@ -13,6 +13,15 @@ function Dashboard() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
+    if (token) {
+      navigate("/dashboard");
+    } else {
+      navigate("/");
+    }
+  }, []);
+
+  useEffect(() => {
     async function loadUser() {
       try {
         const response = await api.get("profile", {
