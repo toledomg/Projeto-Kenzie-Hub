@@ -12,12 +12,13 @@ import { BtnDefault } from "../../../style/Global/Buttons";
 
 import { FormCreate } from "./FomCreate";
 import SelectCreate from "./../Select/SelectCreate";
-import formSchema from "./../../Validators/Schema";
+import { formSchema } from "./../../Validators/Schema";
 
 function FormCadastro({ navigate }) {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(formSchema),
@@ -67,7 +68,7 @@ function FormCadastro({ navigate }) {
         id="password"
         placeholder="Digite sua Senha"
       />
-      {errors.password?.message}
+      <p> {errors.password?.message}</p>
 
       <label htmlFor="passwordConfirm">Confirmar Senha</label>
       <input

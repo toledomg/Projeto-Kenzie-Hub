@@ -11,29 +11,33 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { BtnDefault, BtnMedium } from "../../../style/Global/Buttons";
 
 import { FormCreate } from "./FomCreate";
+import { loginSchema } from "./../../Validators/Schema";
 
 function FormLogin({ navigate }) {
-  const formSchema = yup.object().shape({
-    email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
-    password: yup.string().required("Senha obrigatório"),
-  });
-
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(formSchema),
+    resolver: yupResolver(loginSchema),
   });
 
   const onSubmitFunction = async (data) => {
-    console.log(data);
+    // console.log(data);
 
     try {
       const response = await api.post("sessions", data);
-      // console.log(response);
-      // console.log(response.data.token);
-      localStorage.setItem("@HubKenzie", JSON.stringify(response.data.token));
+      console.log(response.data);
+      console.log(response.data.user.id);
+      localStorage.setItem(
+        "@HubKenzieToken",
+        JSON.stringify(response.data.token)
+      );
+      localStorage.setItem(
+        "@HubKenzieID",
+        JSON.stringify(response.data.user.id)
+      );
       navigate("/dashboard");
       toast.success("Login realizado com sucesso");
     } catch (error) {
