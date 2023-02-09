@@ -15,10 +15,12 @@ export const HomeSection = styled.section`
 
   box-shadow: 0px 3.20867px 32.0867px -8.02168px rgba(0, 0, 0, 0.25);
 
+  padding: 10px;
+
   h1 {
     color: var(--color-primary);
 
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 
   div {
@@ -39,7 +41,7 @@ export const HomeSection = styled.section`
   div > h1 {
     font-style: normal;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 0.9375rem;
     line-height: 22px;
 
     color: var(--color-gray-0);
@@ -48,7 +50,7 @@ export const HomeSection = styled.section`
   div > span {
     font-style: normal;
     font-weight: 400;
-    font-size: 9.772px;
+    font-size: 0.6108rem;
     line-height: 0px;
 
     color: var(--color-gray-1);
@@ -61,7 +63,7 @@ export const HomeSection = styled.section`
 
     font-style: normal;
     font-weight: 500;
-    font-size: 13px;
+    font-size: 0.8125rem;
     line-height: 21px;
 
     padding: 0 10px;
@@ -74,7 +76,7 @@ export const HomeSection = styled.section`
 
     font-style: normal;
     font-weight: 500;
-    font-size: 13px;
+    font-size: 0.8125rem;
     line-height: 21px;
 
     padding: 0 10px;
@@ -90,7 +92,7 @@ export const HomeSection = styled.section`
 
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 28px;
     color: var(--color-gray-0);
 

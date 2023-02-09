@@ -40,7 +40,7 @@ export const CadSection = styled.section`
 
     font-style: normal;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: 28px;
     color: var(--color-gray-0);
 
@@ -62,7 +62,7 @@ export const CadSection = styled.section`
   h1 {
     color: var(--color-primary);
 
-    font-size: 25px;
+    font-size: 1.5625rem;
   }
 
   div {
@@ -102,7 +102,7 @@ export const CadSection = styled.section`
     select > option {
       font-style: normal;
       font-weight: 400;
-      font-size: 14px;
+      font-size: 0.875rem;
       line-height: 26px;
 
       color: var(--color-gray-1);
@@ -111,7 +111,7 @@ export const CadSection = styled.section`
     h1 {
       font-style: normal;
       font-weight: 700;
-      font-size: 15px;
+      font-size: 0.9375rem;
       line-height: 22px;
 
       color: var(--color-gray-0);
@@ -120,7 +120,7 @@ export const CadSection = styled.section`
     span {
       font-style: normal;
       font-weight: 400;
-      font-size: 10px;
+      font-size: 0.625rem;
       line-height: 0px;
 
       color: var(--color-gray-1);
@@ -133,7 +133,7 @@ export const CadSection = styled.section`
 
     font-style: normal;
     font-weight: 500;
-    font-size: 13px;
+    font-size: 0.8125rem;
     line-height: 21px;
 
     padding: 0 10px;

@@ -36,7 +36,7 @@ export const Nav = styled.nav`
 
     font-style: normal;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: 28px;
     letter-spacing: 1px;
     color: var(--color-gray-0);

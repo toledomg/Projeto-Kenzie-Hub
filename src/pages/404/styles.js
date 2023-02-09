@@ -12,7 +12,7 @@ export const NotFound = styled.div`
   gap: 20px;
 
   h1 {
-    font-size: 20px;
+    font-size: 1.25rem;
     color: var(--color-gray-0);
   }
 
@@ -29,7 +29,7 @@ export const NotFound = styled.div`
 
     font-style: normal;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: 28px;
     color: var(--color-gray-0);
 

@@ -9,7 +9,7 @@ export const FormCreate = styled.form`
 
   font-style: normal;
   font-weight: 400;
-  font-size: 10px;
+  font-size: 0.625rem;
   line-height: 0px;
 
   color: var(--color-primary);
@@ -26,7 +26,7 @@ export const FormCreate = styled.form`
 
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: 21px;
 
     color: var(--color-gray-1);
@@ -60,7 +60,7 @@ export const FormCreate = styled.form`
 
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 26px;
     color: var(--color-gray-0);
 
