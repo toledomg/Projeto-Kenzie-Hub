@@ -12,39 +12,9 @@ import { BtnDefault } from "../../../style/Global/Buttons";
 
 import { FormCreate } from "./FomCreate";
 import SelectCreate from "./../Select/SelectCreate";
+import formSchema from "./../../Validators/Schema";
 
 function FormCadastro({ navigate }) {
-  const formSchema = yup.object().shape({
-    name: yup
-      .string()
-      .required("Nome é obrigatório.")
-      .matches("[a-z][a-zA-Z0-9]{9,}", "Deve conter mínimo 10 caracteres"),
-
-    email: yup
-      .string()
-      .required("E-mail é obrigatório.")
-      .email("E-mail inválido."),
-
-    password: yup
-      .string()
-      .required("Senha é obrigatório.")
-      .matches(
-        "^[^W_]{6}$",
-        "A Senha deve conter letras e números e no mínimo 6 caracteres"
-      ),
-
-    passwordConfirm: yup
-      .string()
-      .required("Confirmar a senha é obrigatório.")
-      .oneOf([yup.ref("password")], "Senhas não são iguais."),
-
-    bio: yup.string().required("Bio é obrigatório."),
-
-    contact: yup.string().url("Linkedin é obrigatório."),
-
-    course_module: yup.string().required("Selecione 1 modulo por favor."),
-  });
-
   const {
     register,
     handleSubmit,
