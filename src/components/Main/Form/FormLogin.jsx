@@ -1,5 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import { api } from "./../../../services/api";
+import { toast } from "react-toastify";
 
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -9,7 +12,7 @@ import { BtnDefault, BtnMedium } from "../../../style/Global/Buttons";
 
 import { FormCreate } from "./FomCreate";
 
-function FormLogin() {
+function FormLogin({ navigate }) {
   const formSchema = yup.object().shape({
     email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
     password: yup.string().required("Senha obrigatório"),
@@ -23,7 +26,21 @@ function FormLogin() {
     resolver: yupResolver(formSchema),
   });
 
-  const onSubmitFunction = (data) => console.log(data);
+  const onSubmitFunction = async (data) => {
+    console.log(data);
+
+    try {
+      const response = await api.post("sessions", data);
+      // console.log(response);
+      // console.log(response.data.token);
+      localStorage.setItem("@HubKenzie", JSON.stringify(response.data.token));
+      navigate("/dashboard");
+      toast.success("Login realizado com sucesso");
+    } catch (error) {
+      console.error(error);
+      toast.error("Algo deu errado");
+    }
+  };
 
   return (
     <FormCreate onSubmit={handleSubmit(onSubmitFunction)}>
