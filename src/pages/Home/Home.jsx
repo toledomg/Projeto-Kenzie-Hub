@@ -33,6 +33,7 @@ function Home() {
         />
         <div>
           <span>Ainda não possui uma conta?</span>
+
           <Link to="/cadastro">Cadastre-se</Link>
         </div>
       </div>
