@@ -28,8 +28,8 @@ function FormLogin({ navigate }) {
 
     try {
       const response = await api.post("sessions", data);
-      console.log(response.data);
-      console.log(response.data.user.id);
+      // console.log(response.data);
+      // console.log(response.data.user.id);
       localStorage.setItem(
         "@HubKenzieToken",
         JSON.stringify(response.data.token)
