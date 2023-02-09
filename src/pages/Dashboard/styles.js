@@ -8,7 +8,7 @@ export const Nav = styled.nav`
 
     max-width: 1200px;
     min-width: 320px;
-    height: 72px;
+    min-height: 72px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,9 +25,6 @@ export const Nav = styled.nav`
 
   div > a {
     box-sizing: border-box;
-
-    width: 56px;
-    height: 32px;
 
     display: flex;
     flex-direction: row;

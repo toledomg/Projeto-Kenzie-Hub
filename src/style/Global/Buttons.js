@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const BtnDefault = styled.button`
   box-sizing: border-box;
 
-  width: 134px;
   height: 48px;
 
   display: flex;
@@ -52,7 +51,6 @@ export const BtnDefault = styled.button`
 export const BtnMedium = styled.button`
   box-sizing: border-box;
 
-  width: 134 px;
   height: 32px;
 
   display: flex;
@@ -84,7 +82,6 @@ export const BtnMedium = styled.button`
 export const BtnText = styled.button`
   box-sizing: border-box;
 
-  width: 100px;
   height: 32px;
 
   display: flex;
@@ -116,7 +113,6 @@ export const BtnText = styled.button`
 export const BtnAdd = styled.button`
   box-sizing: border-box;
 
-  width: 33px;
   height: 32px;
 
   display: flex;
