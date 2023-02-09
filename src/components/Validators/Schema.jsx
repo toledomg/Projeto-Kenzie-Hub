@@ -1,14 +1,10 @@
 import * as yup from "yup";
 
-const passwordType = /^(?=.*[A-Z])(?=.*[!#@$%&])(?=.*[0-9])(?=.*[a-z]).{8,}$/;
-
-const nameType = /[a-z][a-zA-Z0-9]{9,}/;
-
-const formSchema = yup.object().shape({
+export const formSchema = yup.object().shape({
   name: yup
     .string()
     .required("Nome é obrigatório.")
-    .matches(nameType, "Deve conter mínimo 10 caracteres"),
+    .matches(/(\D)/, "Não pode iniciar com número"),
 
   email: yup
     .string()
@@ -18,10 +14,11 @@ const formSchema = yup.object().shape({
   password: yup
     .string()
     .required("Senha é obrigatório.")
-    .matches(
-      passwordType,
-      "Deve conter no mínimo 8 caracteres, letra minúsculas e maiúsculas, número, um caractere especial"
-    ),
+    .matches(/(\d)/, "Precisa conter um numero")
+    .matches(/[a-z]/, "Precisa conter uma letra minúscula")
+    .matches(/[A-Z]/, "Precisa conter uma letra maiúscula")
+    .matches(/[\W|_]/, "Precisa conter uma caractere especial")
+    .matches(/.{8,}/, "Precisa conter no mínimo 8 caracteres"),
 
   passwordConfirm: yup
     .string()
@@ -30,9 +27,15 @@ const formSchema = yup.object().shape({
 
   bio: yup.string().required("Bio é obrigatório."),
 
-  contact: yup.string().url("Linkedin é obrigatório."),
+  contact: yup
+    .string()
+    .url("Deve ser em formato de url")
+    .required("Linkedin é obrigatório."),
 
   course_module: yup.string().required("Selecione 1 modulo por favor."),
 });
 
-export default formSchema;
+export const loginSchema = yup.object().shape({
+  email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
+  password: yup.string().required("Senha obrigatório"),
+});
