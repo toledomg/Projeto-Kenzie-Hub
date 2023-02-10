@@ -52,17 +52,6 @@ export const Nav = styled.nav`
   }
 `;
 
-export const HeaderHubDash = styled.header`
-  span {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1.5rem;
-    line-height: 28px;
-    letter-spacing: 1px;
-    color: var(--color-primary);
-  }
-`;
-
 export const Section = styled.section`
   div {
     max-width: 1200px;

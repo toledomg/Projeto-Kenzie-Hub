@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Nav, Section, SectionInfo, HeaderHubDash } from "./styles";
+import { Nav, Section, SectionInfo } from "./styles";
 import { api } from "../../services/api";
 import { motion } from "framer-motion";
 import Header from "../../components/Header/Header";

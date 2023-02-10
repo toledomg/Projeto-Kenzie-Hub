@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { HeaderHubDash } from "../../pages/Dashboard/styles";
-
+import { HeaderHubDash } from "./styles";
 function HeaderD({ exitPage }) {
   return (
     <HeaderHubDash>
