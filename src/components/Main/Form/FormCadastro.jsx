@@ -13,7 +13,6 @@ import { BtnDefault } from "../../../style/Global/Buttons";
 import { FormCreate } from "./FomCreate";
 import SelectCreate from "./../Select/SelectCreate";
 import { formSchema } from "./../../Validators/Schema";
-import InputDefer from "./InputDefer";
 import InputCad from "./InputCad";
 
 function FormCadastro({ navigate }) {
