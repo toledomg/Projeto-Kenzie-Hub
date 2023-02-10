@@ -24,12 +24,9 @@ function FormLogin({ navigate }) {
   });
 
   const onSubmitFunction = async (data) => {
-    // console.log(data);
-
     try {
       const response = await api.post("sessions", data);
-      // console.log(response.data);
-      // console.log(response.data.user.id);
+
       localStorage.setItem(
         "@HubKenzieToken",
         JSON.stringify(response.data.token)

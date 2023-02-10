@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export const Nav = styled.nav`
-  /* border-bottom: 1px solid var(--color-gray-3); */
-
-  div {
+  header {
     font-family: var(--font-primary);
 
     max-width: 1200px;
@@ -19,11 +17,11 @@ export const Nav = styled.nav`
     gap: 1rem;
   }
 
-  div > h1 {
+  header > h1 {
     color: var(--color-primary);
   }
 
-  div > a {
+  header > a {
     box-sizing: border-box;
 
     display: flex;
@@ -54,6 +52,17 @@ export const Nav = styled.nav`
   }
 `;
 
+export const HeaderHubDash = styled.header`
+  span {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 28px;
+    letter-spacing: 1px;
+    color: var(--color-primary);
+  }
+`;
+
 export const Section = styled.section`
   div {
     max-width: 1200px;
@@ -74,6 +83,10 @@ export const Section = styled.section`
   }
 
   div > h1 {
+    color: var(--color-gray-0);
+  }
+  div > h2 {
+    font-size: 1.125rem;
     color: var(--color-gray-0);
   }
 

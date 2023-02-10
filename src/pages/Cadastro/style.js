@@ -27,6 +27,15 @@ export const CadSection = styled.section`
     gap: 10px;
   }
 
+  section > span {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 28px;
+    letter-spacing: 1px;
+    color: var(--color-primary);
+  }
+
   section > a {
     box-sizing: border-box;
 

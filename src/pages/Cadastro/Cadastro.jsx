@@ -9,7 +9,6 @@ import FormCadastro from "./../../components/Main/Form/FormCadastro";
 function Cadastro() {
   const navigate = useNavigate();
 
-  // const backPage = () => navigate(-1);
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
     if (token) {
@@ -27,7 +26,7 @@ function Cadastro() {
       >
         <CadSection>
           <section>
-            <h1>Kenzie Hub</h1>
+            <span>Kenzie Hub</span>
             <Link to="/home">Voltar</Link>
           </section>
           <div>

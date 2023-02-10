@@ -9,8 +9,6 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-//
-
 function Home() {
   const navigate = useNavigate();
   const CadPage = () => navigate("/cadastro");
@@ -43,9 +41,9 @@ function Home() {
         transition={{ opacity: 1 }}
       >
         <HomeSection>
-          <h1>Kenzie Hub</h1>
+          <span>Kenzie Hub</span>
           <div>
-            <h1>Login</h1>
+            <h2>Login</h2>
             <FormLogin
               onSubmit={handleSubmit(onSubmitFunction)}
               navigate={navigate}

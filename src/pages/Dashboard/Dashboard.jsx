@@ -1,9 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Nav, Section, SectionInfo } from "./styles";
+import { Nav, Section, SectionInfo, HeaderHubDash } from "./styles";
 import { api } from "../../services/api";
 import { motion } from "framer-motion";
+import Header from "../../components/Header/Header";
 
 let Name = [];
 let Modulo = [];
@@ -55,12 +56,7 @@ function Dashboard() {
         transition={{ opacity: 1 }}
       >
         <Nav>
-          <div>
-            <h1>Kenzie Hub</h1>
-            <Link onClick={exitPage} to="/home">
-              Sair
-            </Link>
-          </div>
+          <Header exitPage={exitPage} />
         </Nav>
         <Section>
           <div>
@@ -69,7 +65,7 @@ function Dashboard() {
           </div>
           <SectionInfo>
             <div>
-              <h1>Que pena! Estamos em desenvolvimento :</h1>
+              <h2>Que pena! Estamos em desenvolvimento :</h2>
               <p>
                 Nossa aplicação está em desenvolvimento, em breve teremos
                 novidades

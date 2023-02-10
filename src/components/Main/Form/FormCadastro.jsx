@@ -13,6 +13,8 @@ import { BtnDefault } from "../../../style/Global/Buttons";
 import { FormCreate } from "./FomCreate";
 import SelectCreate from "./../Select/SelectCreate";
 import { formSchema } from "./../../Validators/Schema";
+import InputDefer from "./InputDefer";
+import InputCad from "./InputCad";
 
 function FormCadastro({ navigate }) {
   const {
@@ -45,58 +47,9 @@ function FormCadastro({ navigate }) {
 
   return (
     <FormCreate onSubmit={handleSubmit(onSubmitFunction)}>
-      <label htmlFor="name">Nome</label>
-      <input
-        type="name"
-        {...register("name")}
-        id="name"
-        placeholder="Digite aqui seu nome"
-      />
-      {errors.name?.message}
-      <label htmlFor="email">Email</label>
-      <input
-        type="email"
-        {...register("email")}
-        id="email"
-        placeholder="Digite seu Email"
-      />
-      {errors.email?.message}
-      <label htmlFor="password">Senha</label>
-      <input
-        type="password"
-        {...register("password")}
-        id="password"
-        placeholder="Digite sua Senha"
-      />
-      <p> {errors.password?.message}</p>
-
-      <label htmlFor="passwordConfirm">Confirmar Senha</label>
-      <input
-        type="password"
-        {...register("passwordConfirm")}
-        id="passwordConfirm"
-        placeholder="Digite novamente sua Senha"
-      />
-      {errors.passwordConfirm?.message}
-      <label htmlFor="bio">Bio</label>
-      <input
-        type="text"
-        {...register("bio")}
-        id="bio"
-        placeholder="Fale sobre você"
-      />
-      {errors.bio?.message}
-      <label htmlFor="contact">Linkedin:</label>
-      <input
-        type="text"
-        {...register("contact")}
-        id="contact"
-        placeholder="http://linkedin/in/user"
-      />
-      {errors.contact?.message}
+      <InputCad register={register} errors={errors} />
       <SelectCreate register={register} />
       {errors.course_module?.message}
-
       <BtnDefault type="submit">Cadastrar</BtnDefault>
     </FormCreate>
   );
