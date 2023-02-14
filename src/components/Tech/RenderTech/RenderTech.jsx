@@ -6,9 +6,11 @@ import RenderList from "./RenderList";
 
 function RenderTech() {
   return (
-    <TechUl>
-      <RenderList />
-    </TechUl>
+    <div>
+      <TechUl>
+        <RenderList />
+      </TechUl>
+    </div>
   );
 }
 
