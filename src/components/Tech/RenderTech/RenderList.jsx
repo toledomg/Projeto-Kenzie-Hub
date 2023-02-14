@@ -28,9 +28,9 @@ function RenderList() {
   console.log(renderTech);
   return (
     <>
-      {renderTech.lenght !== 0 ? (
+      {renderTech.length !== 0 ? (
         renderTech.map((tech, index) => (
-          <li>
+          <li key={index}>
             <p>{tech.title}</p>
             <section>
               <p>{tech.status}</p>
