@@ -8,12 +8,16 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { GlobalStyles, Reset } from "./style/Global/global";
 
+import ProvidersApp from "./providers/ProvidersApp";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Reset />
-      <GlobalStyles />
-      <App />
-    </BrowserRouter>
+    <ProvidersApp>
+      <BrowserRouter>
+        <Reset />
+        <GlobalStyles />
+        <App />
+      </BrowserRouter>
+    </ProvidersApp>
   </React.StrictMode>
 );

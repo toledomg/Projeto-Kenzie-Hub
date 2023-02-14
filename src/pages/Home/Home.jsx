@@ -1,27 +1,19 @@
-import React from "react";
-import { HomeSection } from "./style";
-import FormLogin from "../../components/Main/Form/FormLogin";
+import React, { useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { HomeSection } from "./style";
+
+import { HomeLoginContext } from "./../../providers/HomeLoginContext";
+
+import FormLogin from "../../components/Main/Form/FormLogin";
 
 function Home() {
+  const { register, handleSubmit, errors, onSubmitFunction } =
+    useContext(HomeLoginContext);
+
   const navigate = useNavigate();
   const CadPage = () => navigate("/cadastro");
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
-  const onSubmitFunction = async (data) => {
-    console.log(data);
-  };
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));

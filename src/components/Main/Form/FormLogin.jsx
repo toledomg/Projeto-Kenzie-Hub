@@ -1,27 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { api } from "./../../../services/api";
 import { toast } from "react-toastify";
 
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-
 import { BtnDefault, BtnMedium } from "../../../style/Global/Buttons";
 
 import { FormCreate } from "./FomCreate";
-import { loginSchema } from "./../../Validators/Schema";
+import { FormLoginContext } from "./../../../providers/FormLoginContext";
 
 function FormLogin({ navigate }) {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(loginSchema),
-  });
+  const { register, handleSubmit, reset, errors } =
+    useContext(FormLoginContext);
 
   const onSubmitFunction = async (data) => {
     try {

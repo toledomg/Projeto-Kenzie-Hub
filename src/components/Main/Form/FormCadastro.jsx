@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../../services/api";
 
@@ -12,10 +12,16 @@ import { BtnDefault } from "../../../style/Global/Buttons";
 
 import { FormCreate } from "./FomCreate";
 import SelectCreate from "./../Select/SelectCreate";
-import { formSchema } from "./../../Validators/Schema";
+import { formSchema } from "../../../Validators/Schema";
 import InputCad from "./InputCad";
 
+import { FormLoginContext } from "../../../providers/FormLoginContext";
+
 function FormCadastro({ navigate }) {
+  // Usando o userContext, esta bugando o campo validação de nomes
+  // const { register, handleSubmit, reset, errors } =
+  //   useContext(FormLoginContext);
+
   const {
     register,
     handleSubmit,

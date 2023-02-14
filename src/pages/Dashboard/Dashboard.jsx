@@ -5,6 +5,9 @@ import { Nav, Section, SectionInfo } from "./styles";
 import { api } from "../../services/api";
 import { motion } from "framer-motion";
 import Header from "../../components/Header/Header";
+import { BtnAdd } from "../../style/Global/Buttons";
+import { TechSection } from "./../../components/Tech/RenderTech/styles";
+import RenderTech from "./../../components/Tech/RenderTech/RenderTech";
 
 let Name = [];
 let Modulo = [];
@@ -43,7 +46,8 @@ function Dashboard() {
   }, []);
 
   const exitPage = () => {
-    localStorage.clear();
+    localStorage.removeItem("@HubKenzieToken");
+    localStorage.removeItem("@HubKenzieID");
     navigate("/");
   };
 
@@ -65,12 +69,10 @@ function Dashboard() {
           </div>
           <SectionInfo>
             <div>
-              <h2>Que pena! Estamos em desenvolvimento :</h2>
-              <p>
-                Nossa aplicação está em desenvolvimento, em breve teremos
-                novidades
-              </p>
+              <h2>Tecnologias</h2>
+              <BtnAdd>+</BtnAdd>
             </div>
+            <RenderTech />
           </SectionInfo>
         </Section>
       </motion.div>
