@@ -6,7 +6,6 @@ import { api } from "../../services/api";
 import { motion } from "framer-motion";
 import Header from "../../components/Header/Header";
 import { BtnAdd } from "../../style/Global/Buttons";
-import { TechSection } from "./../../components/Tech/RenderTech/styles";
 import RenderTech from "./../../components/Tech/RenderTech/RenderTech";
 
 let Name = [];

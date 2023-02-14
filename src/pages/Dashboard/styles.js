@@ -67,7 +67,7 @@ export const Section = styled.section`
     align-items: center;
 
     /* border-top: 1px solid var(--color-gray-3); */
-    /* margin: 0 auto; */
+    margin: 0 auto;
 
     padding: 10px 20px;
     gap: 30px;
