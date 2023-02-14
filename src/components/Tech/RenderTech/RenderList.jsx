@@ -39,7 +39,14 @@ function RenderList() {
           </li>
         ))
       ) : (
-        <h3>Você ainda não cadastrou nenhuma tecnologia</h3>
+        <section>
+          <div>
+            <h2>Seja Bem - Vindo</h2>
+          </div>
+          <div>
+            <h3>Você ainda não cadastrou nenhuma tecnologia</h3>
+          </div>
+        </section>
       )}
     </>
   );

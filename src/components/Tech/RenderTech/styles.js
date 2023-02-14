@@ -6,6 +6,7 @@ export const TechUl = styled.ul`
   height: 420px;
 
   display: flex;
+  align-items: center;
   flex-direction: column;
 
   background-color: var(--color-gray-3);
@@ -14,6 +15,24 @@ export const TechUl = styled.ul`
   margin: 0 auto;
   padding: 15px 15px;
   gap: 16px;
+
+  section > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  section > div > h2 {
+    font-size: 1.75rem;
+    text-align: center;
+    color: var(--color-gray-0);
+  }
+
+  section > div > h3 {
+    text-align: center;
+    color: var(--color-gray-0);
+  }
 
   li {
     width: 100%;
@@ -36,7 +55,7 @@ export const TechUl = styled.ul`
   li > p {
     font-style: normal;
     font-weight: 700;
-    font-size: 14.21px;
+    font-size: 0.8881rem;
     line-height: 22px;
     color: var(--color-gray-0);
   }
@@ -50,7 +69,7 @@ export const TechUl = styled.ul`
   }
 
   li > section > i {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--color-gray-0);
 
     cursor: pointer;
@@ -59,7 +78,7 @@ export const TechUl = styled.ul`
   li > section > p {
     font-style: normal;
     font-weight: 400;
-    font-size: 12.182px;
+    font-size: 0.7614rem;
     line-height: 22px;
 
     color: var(--color-gray-0);
