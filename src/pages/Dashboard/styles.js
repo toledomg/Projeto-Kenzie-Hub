@@ -4,7 +4,7 @@ export const Nav = styled.nav`
   header {
     font-family: var(--font-primary);
 
-    max-width: 1200px;
+    max-width: 1000px;
     min-width: 320px;
     min-height: 72px;
     display: flex;
@@ -53,8 +53,10 @@ export const Nav = styled.nav`
 `;
 
 export const Section = styled.section`
+  border-top: 1px solid var(--color-gray-3);
+
   div {
-    max-width: 1200px;
+    max-width: 1000px;
     min-width: 320px;
     height: auto;
     min-height: 131px;
@@ -64,10 +66,10 @@ export const Section = styled.section`
     justify-content: space-between;
     align-items: center;
 
-    border-top: 1px solid var(--color-gray-3);
-    margin: 0 auto;
+    /* border-top: 1px solid var(--color-gray-3); */
+    /* margin: 0 auto; */
 
-    padding: 36px 20px;
+    padding: 10px 20px;
     gap: 30px;
   }
 
@@ -88,8 +90,10 @@ export const Section = styled.section`
 `;
 
 export const SectionInfo = styled.section`
+  border-top: 1px solid var(--color-gray-3);
+
   div {
-    max-width: 1200px;
+    max-width: 1000px;
     min-width: 320px;
     height: auto;
     min-height: 131px;
@@ -101,7 +105,7 @@ export const SectionInfo = styled.section`
 
     margin: 0 auto;
 
-    padding: 36px 20px;
+    padding: 10px 20px;
     gap: 30px;
   }
 
