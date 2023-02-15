@@ -1,31 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { api } from "./../../../services/api";
-let Dados = [];
+import React, { useContext } from "react";
+
+import { UserTechContext } from "./../../../providers/UserTechContext";
+
 function RenderList() {
-  const [renderTech, setRenderTech] = useState("");
-  const [user, setUser] = useState("");
+  const { renderTech } = useContext(UserTechContext);
 
-  const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
-
-  useEffect(() => {
-    async function listUser() {
-      try {
-        const response = await api.get("profile", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        setRenderTech(response.data.techs);
-        setUser(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    listUser();
-  }, []);
-
-  console.log(renderTech);
   return (
     <>
       {renderTech.length !== 0 ? (

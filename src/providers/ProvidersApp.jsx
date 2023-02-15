@@ -1,13 +1,16 @@
 import React from "react";
 import { HomeLoginProvider } from "./HomeLoginContext";
 import { FormLoginProvider } from "./FormLoginContext";
+import { UserTechProvider } from "./UserTechContext";
 
 const ProvidersApp = ({ children }) => {
   return (
     <>
-      <HomeLoginProvider>
-        <FormLoginProvider>{children}</FormLoginProvider>
-      </HomeLoginProvider>
+      <UserTechProvider>
+        <HomeLoginProvider>
+          <FormLoginProvider>{children}</FormLoginProvider>
+        </HomeLoginProvider>
+      </UserTechProvider>
     </>
   );
 };
