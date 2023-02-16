@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home/Home";
-import AppRoutes from "./routes/index";
+import AppRoutes from "./routes/routes";
 import { ToastContainer, toast } from "react-toastify";
 
 function App() {
