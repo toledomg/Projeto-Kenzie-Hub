@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Nav, Section, SectionInfo } from "./styles";
 import { api } from "../../services/api";
@@ -8,12 +8,25 @@ import Header from "../../components/Header/Header";
 import { BtnAdd } from "../../style/Global/Buttons";
 import RenderTech from "./../../components/Tech/RenderTech/RenderTech";
 
+import ModalEdit from "./../Home/Modal/index";
+import { ModalTechContext } from "./../../providers/ModalTechContext";
+
 let Name = [];
 let Modulo = [];
 
 function Dashboard() {
+  const {
+    showModalEdit,
+    setShowModalEdit,
+    showModalAdd,
+    setShowModalAdd,
+    modalShowAdd,
+    modalShow,
+  } = useContext(ModalTechContext);
+
   const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
   const [user, setUser] = useState();
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,6 +46,7 @@ function Dashboard() {
             Authorization: `Bearer ${token}`,
           },
         });
+
         setUser(response.data);
         Modulo = response.data.course_module;
         Name =
@@ -61,19 +75,24 @@ function Dashboard() {
         <Nav>
           <Header exitPage={exitPage} />
         </Nav>
-        <Section>
-          <div>
-            <h1>Olá, {Name}.</h1>
-            <p>{Modulo}</p>
-          </div>
-          <SectionInfo>
+        {showModalAdd === true ? (
+          <ModalEdit setShowModalAdd={setShowModalAdd} />
+        ) : (
+          <Section>
             <div>
-              <h2>Tecnologias</h2>
-              <BtnAdd>+</BtnAdd>
+              <h1>Olá, {Name}.</h1>
+              <p>{Modulo}</p>
             </div>
-            <RenderTech />
-          </SectionInfo>
-        </Section>
+
+            <SectionInfo>
+              <div>
+                <h2>Tecnologias</h2>
+                <BtnAdd onClick={() => modalShowAdd()}>+</BtnAdd>
+              </div>
+              <RenderTech />
+            </SectionInfo>
+          </Section>
+        )}
       </motion.div>
     </>
   );

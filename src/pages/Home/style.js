@@ -67,7 +67,6 @@ export const HomeSection = styled.section`
 
   button {
     width: 100%;
-    max-width: 260px;
     height: 39px;
 
     font-style: normal;

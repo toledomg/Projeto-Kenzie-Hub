@@ -39,3 +39,8 @@ export const loginSchema = yup.object().shape({
   email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
   password: yup.string().required("Senha obrigatório"),
 });
+
+export const ModalEditSchema = yup.object().shape({
+  title: yup.string().required("Favor digite uma tecnologia"),
+  status: yup.string().required("Favor Selecionar um status"),
+});
