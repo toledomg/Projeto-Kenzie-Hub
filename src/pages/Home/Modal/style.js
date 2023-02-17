@@ -6,6 +6,103 @@ export const ModalSection = styled.section`
 
     width: 100%;
     height: 100vh;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    top: 0;
+  }
+
+  width: 369px;
+  height: 342px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: var(--color-gray-3);
+  /* border: 1px solid var(--color-gray-0); */
+
+  box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+
+  /* padding: 68px 22px 32px; */
+  gap: 20px;
+
+  margin: 25vh auto;
+
+  ::backdrop {
+    background: white;
+  }
+
+  .divTitle {
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    background-color: var(--color-gray-2);
+    border-radius: 4px 4px 0px 0px;
+
+    padding: 12px 20px;
+    gap: 10px;
+
+    p {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 0.875rem;
+      line-height: 24px;
+
+      color: var(--color-gray-0);
+    }
+
+    i {
+      font-size: 1.25rem;
+      color: var(--color-gray-0);
+      cursor: pointer;
+    }
+
+    .teste {
+      display: flex;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-overlay {
+      background: #ececec;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      width: 90%;
+      max-width: 500px;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  }
+`;
+
+export const ModalDialog = styled.dialog`
+  .modalBox {
+    background: rgba(18, 18, 20, 0.5);
+
+    width: 100%;
+    height: 100vh;
     position: absolute;
     display: flex;
     align-items: center;

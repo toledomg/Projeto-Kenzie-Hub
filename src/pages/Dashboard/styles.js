@@ -92,6 +92,25 @@ export const Section = styled.section`
 export const SectionInfo = styled.section`
   border-top: 1px solid var(--color-gray-3);
 
+  .loading {
+    p {
+      margin-top: 60px;
+      font-size: 2rem;
+      font-weight: 600;
+      align-items: center;
+    }
+
+    img {
+      width: 70px;
+      height: auto;
+      margin: 0px auto;
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   div {
     max-width: 1000px;
     min-width: 320px;

@@ -1,6 +1,6 @@
 import React from "react";
 
-function SelectModalEdit({ errors, register }) {
+function SelectModalAdd({ errors, register }) {
   return (
     <>
       <label htmlFor="selectModulo">Selecionar status</label>
@@ -20,4 +20,4 @@ function SelectModalEdit({ errors, register }) {
   );
 }
 
-export default SelectModalEdit;
+export default SelectModalAdd;

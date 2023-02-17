@@ -8,7 +8,9 @@ import Header from "../../components/Header/Header";
 import { BtnAdd } from "../../style/Global/Buttons";
 import RenderTech from "./../../components/Tech/RenderTech/RenderTech";
 
-import ModalEdit from "./../Home/Modal/index";
+import spinner from "../../assets/img/spinner.svg";
+
+import ModalAdd from "../Home/Modal/ModalAdd";
 import { ModalTechContext } from "./../../providers/ModalTechContext";
 
 let Name = [];
@@ -24,10 +26,10 @@ function Dashboard() {
     modalShow,
   } = useContext(ModalTechContext);
 
+  const navigate = useNavigate();
   const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
   const [user, setUser] = useState();
-
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
@@ -41,6 +43,7 @@ function Dashboard() {
   useEffect(() => {
     async function loadUser() {
       try {
+        setLoading(true);
         const response = await api.get("profile", {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -53,6 +56,8 @@ function Dashboard() {
           response.data.name[0].toUpperCase() + response.data.name.substr(1);
       } catch (error) {
         console.error(error);
+      } finally {
+        setLoading(false);
       }
     }
     loadUser();
@@ -76,23 +81,33 @@ function Dashboard() {
           <Header exitPage={exitPage} />
         </Nav>
         {showModalAdd === true ? (
-          <ModalEdit setShowModalAdd={setShowModalAdd} />
+          <ModalAdd setShowModalAdd={setShowModalAdd} />
         ) : (
-          <Section>
-            <div>
-              <h1>Olá, {Name}.</h1>
-              <p>{Modulo}</p>
-            </div>
-
-            <SectionInfo>
-              <div>
-                <h2>Tecnologias</h2>
-                <BtnAdd onClick={() => modalShowAdd()}>+</BtnAdd>
-              </div>
-              <RenderTech />
-            </SectionInfo>
-          </Section>
+          ""
         )}
+        <Section>
+          <div>
+            <h1>Olá, {Name}.</h1>
+            <p>{Modulo}</p>
+          </div>
+
+          <SectionInfo>
+            <div>
+              <h2>Tecnologias</h2>
+              <BtnAdd onClick={() => modalShowAdd()}>+</BtnAdd>
+            </div>
+            {loading ? (
+              <>
+                <div className="loading">
+                  <p>Carregando</p>
+                  <img src={spinner} />
+                </div>
+              </>
+            ) : (
+              <RenderTech setShowModalAdd={setShowModalAdd} />
+            )}
+          </SectionInfo>
+        </Section>
       </motion.div>
     </>
   );

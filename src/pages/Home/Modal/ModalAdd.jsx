@@ -1,20 +1,20 @@
 import React, { useState, useContext, forwardRef } from "react";
-import { ModalSection, ModalSectionTrash, FormEditTech } from "./style";
+import { ModalSection, FormEditTech } from "./style";
 
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { useForm } from "react-hook-form";
-import { BtnDefault } from "./../../../style/Global/Buttons";
-import SelectModalEdit from "./../../../components/Main/Select/SelectModalEdit";
-import { ModalEditSchema } from "./../../../Validators/Schema";
-import { UserTechAddContext } from "./../../../providers/UserTechAddContext";
-import InputDefer from "./../../../components/Main/Form/InputDefer";
-import InputCad from "./../../../components/Main/Form/InputCad";
+import { BtnDefault } from "../../../style/Global/Buttons";
+import SelectModalAdd from "../../../components/Main/Select/SelectModalAdd";
 
-function ModalEdit({ setShowModalAdd }) {
-  const { createTechProfile, onSubmitFunction } =
-    useContext(UserTechAddContext);
+import { ModalEditSchema } from "../../../Validators/Schema";
+import { UserTechAddContext } from "../../../providers/UserTechAddContext";
+import InputDefer from "../../../components/Main/Form/InputDefer";
+
+function ModalAdd({ setShowModalAdd }) {
+  const { createTechProfile } = useContext(UserTechAddContext);
+
   const {
     register,
     handleSubmit,
@@ -44,7 +44,7 @@ function ModalEdit({ setShowModalAdd }) {
             {...register("title")}
           />
           {errors.title?.message}
-          <SelectModalEdit register={register} />
+          <SelectModalAdd register={register} />
           {errors.status?.message}
 
           <BtnDefault type="submit">Cadastrar Tecnologia</BtnDefault>
@@ -54,4 +54,4 @@ function ModalEdit({ setShowModalAdd }) {
   );
 }
 
-export default ModalEdit;
+export default ModalAdd;

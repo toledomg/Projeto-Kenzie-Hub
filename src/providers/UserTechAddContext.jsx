@@ -18,6 +18,25 @@ export const UserTechAddProvider = ({ children }) => {
 
   const createTechProfile = async (data) => {
     const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
+    console.log(data);
+    try {
+      const response = await api.post("users/techs", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setRenderTech([...renderTech, response.data]);
+      setShowModalAdd(false);
+      toast.success("Cadastro realizado com sucesso");
+    } catch (error) {
+      console.log(error);
+
+      toast.error("Algo deu errado");
+    }
+  };
+
+  const addTechProfile = async (data) => {
+    const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
     // console.log(data);
     try {
       const response = await api.post("users/techs", data, {
@@ -35,23 +54,9 @@ export const UserTechAddProvider = ({ children }) => {
     }
   };
 
-  async function addTechProfile(body) {
-    try {
-      const response = await api.delete(`users/techs/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      setRenderTech(renderTech.filter((tech) => tech.id !== id));
-      setShowModalAdd(false);
-      toast.success("Tecnologia adicionada com sucesso");
-    } catch (error) {
-      console.log(error);
-      toast.error("Algo deu errado");
-    }
-  }
-
-  async function deleteTechProfile(id) {
+  const deleteTechProfile = async (id) => {
+    const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
+    // console.log(data);
     try {
       const response = await api.delete(`users/techs/${id}`, {
         headers: {
@@ -65,7 +70,7 @@ export const UserTechAddProvider = ({ children }) => {
       console.log(error);
       toast.error("Algo deu errado");
     }
-  }
+  };
 
   return (
     <UserTechAddContext.Provider
@@ -73,6 +78,8 @@ export const UserTechAddProvider = ({ children }) => {
         createTechProfile,
         addTechProfile,
         deleteTechProfile,
+        renderTech,
+        setRenderTech,
       }}
     >
       {children}
