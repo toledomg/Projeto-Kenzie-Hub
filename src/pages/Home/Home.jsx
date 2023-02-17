@@ -7,7 +7,6 @@ import { HomeSection } from "./style";
 import { HomeLoginContext } from "./../../providers/HomeLoginContext";
 
 import FormLogin from "../../components/Main/Form/FormLogin";
-import ModalEdit from "./Modal/index";
 
 function Home() {
   const { register, handleSubmit, errors, onSubmitFunction } =
