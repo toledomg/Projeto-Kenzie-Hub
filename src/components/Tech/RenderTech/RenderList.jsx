@@ -31,11 +31,13 @@ function RenderList() {
       >
         <ModalEdit />;
       </Modal> */}
+
       {showModalEdit === true ? (
         <ModalEdit setShowModalEdit={setShowModalEdit} />
       ) : (
         ""
       )}
+
       {renderTech.length !== 0 ? (
         renderTech.map((tech, index) => (
           <li key={index}>

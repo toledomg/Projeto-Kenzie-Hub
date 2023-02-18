@@ -288,6 +288,8 @@ export const FormEditTech = styled.form`
   }
 
   .buttonModal {
+    width: 100%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -295,10 +297,10 @@ export const FormEditTech = styled.form`
     gap: 5px;
 
     button {
-      width: 100%;
+      width: 49%;
       height: 50px;
 
-      padding: 0 10px;
+      padding: 10px 5px;
     }
   }
 `;

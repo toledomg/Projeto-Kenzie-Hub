@@ -39,7 +39,7 @@ function ModalEdit() {
   return (
     <>
       <ModalSection>
-        <div className="divTitle ">
+        <div className="divTitle">
           <p>Tecnologia Detalhes</p>
           <i
             className="material-symbols-outlined"

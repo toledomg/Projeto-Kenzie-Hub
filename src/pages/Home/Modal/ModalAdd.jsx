@@ -11,9 +11,11 @@ import SelectModalAdd from "../../../components/Main/Select/SelectModalAdd";
 import { ModalEditSchema } from "../../../Validators/Schema";
 import { UserTechAddContext } from "../../../providers/UserTechAddContext";
 import InputDefer from "../../../components/Main/Form/InputDefer";
+import { ModalTechContext } from "./../../../providers/ModalTechContext";
 
-function ModalAdd({ setShowModalAdd }) {
+function ModalAdd() {
   const { createTechProfile } = useContext(UserTechAddContext);
+  const { modalShowAdd } = useContext(ModalTechContext);
 
   const {
     register,
@@ -30,7 +32,7 @@ function ModalAdd({ setShowModalAdd }) {
           <p>Cadastrar Tecnologia</p>
           <i
             className="material-symbols-outlined"
-            onClick={() => setShowModalAdd(false)}
+            onClick={() => modalShowAdd()}
           >
             close
           </i>

@@ -106,10 +106,7 @@ function Dashboard() {
                 </div>
               </>
             ) : (
-              <RenderTech
-                setShowModalAdd={setShowModalAdd}
-                setShowModalEdit={setShowModalEdit}
-              />
+              <RenderTech />
             )}
           </SectionInfo>
         </Section>
