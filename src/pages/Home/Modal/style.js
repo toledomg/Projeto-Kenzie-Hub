@@ -286,4 +286,19 @@ export const FormEditTech = styled.form`
       border: 1px solid var(--color-gray-2);
     }
   }
+
+  .buttonModal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 5px;
+
+    button {
+      width: 100%;
+      height: 50px;
+
+      padding: 0 10px;
+    }
+  }
 `;
