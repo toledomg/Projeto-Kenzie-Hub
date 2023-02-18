@@ -61,7 +61,7 @@ function ModalEdit() {
           {errors.title?.message}
           <SelectModalAdd register={register} />
           {errors.status?.message}
-          {/*  */}
+
           <BtnDefault type="submit">Salvar Alterações</BtnDefault>
           <BtnDefault type="submit">Excluir</BtnDefault>
         </FormEditTech>

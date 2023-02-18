@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const TechUl = styled.ul`
   width: 100%;
   max-width: 1000px;
-  height: 420px;
+  min-height: 400px;
 
   display: flex;
   align-items: center;
@@ -15,6 +15,27 @@ export const TechUl = styled.ul`
   margin: 0 auto;
   padding: 15px 15px;
   gap: 16px;
+
+  /* overflow-y: auto; */
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 100px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-gray-2);
+    border-radius: 100px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 
   section > div {
     display: flex;
