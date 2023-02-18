@@ -6,7 +6,7 @@ export const ModalTechProvider = ({ children }) => {
   const [showModalEdit, setShowModalEdit] = useState(false);
   const [showModalAdd, setShowModalAdd] = useState(false);
 
-  const modalShow = () => {
+  const modalShowEdit = () => {
     if (showModalEdit === false) {
       setShowModalEdit(true);
     } else {
@@ -30,7 +30,7 @@ export const ModalTechProvider = ({ children }) => {
         showModalAdd,
         setShowModalAdd,
         modalShowAdd,
-        modalShow,
+        modalShowEdit,
       }}
     >
       {children}

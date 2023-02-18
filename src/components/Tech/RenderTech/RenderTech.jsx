@@ -3,11 +3,14 @@ import { TechUl } from "./styles";
 
 import RenderList from "./RenderList";
 
-function RenderTech({ setShowModalAdd }) {
+function RenderTech({ setShowModalAdd, setShowModalEdit }) {
   return (
     <div>
       <TechUl>
-        <RenderList setShowModalAdd={setShowModalAdd} />
+        <RenderList
+          setShowModalAdd={setShowModalAdd}
+          setShowModalEdit={setShowModalEdit}
+        />
       </TechUl>
     </div>
   );

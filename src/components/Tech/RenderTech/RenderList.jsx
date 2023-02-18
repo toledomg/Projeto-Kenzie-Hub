@@ -4,12 +4,13 @@ import { UserTechContext } from "./../../../providers/UserTechContext";
 import { ModalTechContext } from "./../../../providers/ModalTechContext";
 
 import Modal from "react-modal";
-// import ModalAdd from "./../../../pages/Home/Modal/ModalAdd";
 import ModalEdit from "./../../../pages/Home/Modal/ModalEdit";
 Modal.setAppElement("#root");
 
-function RenderList({ setShowModalAdd }) {
+function RenderList() {
   const { renderTech } = useContext(UserTechContext);
+  const { showModalEdit, setShowModalEdit, modalShowEdit } =
+    useContext(ModalTechContext);
 
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() {
@@ -21,22 +22,30 @@ function RenderList({ setShowModalAdd }) {
 
   return (
     <>
-      <Modal
+      {/* <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Example Modal"
         overlayClassName="modal-overlay"
         className="modal-content"
       >
-        <ModalEdit setShowModalAdd={setShowModalAdd} />;
-      </Modal>
+        <ModalEdit />;
+      </Modal> */}
+      {showModalEdit === true ? (
+        <ModalEdit setShowModalEdit={setShowModalEdit} />
+      ) : (
+        ""
+      )}
       {renderTech.length !== 0 ? (
         renderTech.map((tech, index) => (
           <li key={index}>
             <p>{tech.title}</p>
             <section>
               <p>{tech.status}</p>
-              <i onClick={openModal} className="material-symbols-outlined">
+              <i
+                onClick={() => modalShowEdit()}
+                className="material-symbols-outlined"
+              >
                 delete
               </i>
             </section>

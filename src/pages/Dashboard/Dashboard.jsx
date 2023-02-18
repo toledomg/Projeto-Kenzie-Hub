@@ -23,8 +23,10 @@ function Dashboard() {
     showModalAdd,
     setShowModalAdd,
     modalShowAdd,
-    modalShow,
+    modalShowEdit,
   } = useContext(ModalTechContext);
+
+  console.log(showModalEdit);
 
   const navigate = useNavigate();
   const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
@@ -104,7 +106,10 @@ function Dashboard() {
                 </div>
               </>
             ) : (
-              <RenderTech setShowModalAdd={setShowModalAdd} />
+              <RenderTech
+                setShowModalAdd={setShowModalAdd}
+                setShowModalEdit={setShowModalEdit}
+              />
             )}
           </SectionInfo>
         </Section>

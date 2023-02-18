@@ -13,21 +13,20 @@ import SelectModalAdd from "../../../components/Main/Select/SelectModalAdd";
 import { ModalEditSchema } from "../../../Validators/Schema";
 import { UserTechAddContext } from "../../../providers/UserTechAddContext";
 import InputDefer from "../../../components/Main/Form/InputDefer";
-import InputCad from "../../../components/Main/Form/InputCad";
+import { ModalTechContext } from "./../../../providers/ModalTechContext";
 
 function ModalEdit() {
   const [modalIsOpen, setIsOpen] = useState(false);
-  // console.log(ShowModalAdd);
-  function openModal() {
-    setIsOpen(true);
-  }
+  const {
+    showModalEdit,
+    setShowModalEdit,
+    showModalAdd,
+    setShowModalAdd,
+    modalShowAdd,
+    modalShowEdit,
+  } = useContext(ModalTechContext);
 
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  const { addTechProfile, renderTech, setShowModalEdit } =
-    useContext(UserTechAddContext);
+  const { addTechProfile, renderTech } = useContext(UserTechAddContext);
   const {
     register,
     handleSubmit,
@@ -37,7 +36,6 @@ function ModalEdit() {
   });
 
   // console.log(renderTech);
-
   return (
     <>
       <ModalSection>
@@ -45,7 +43,7 @@ function ModalEdit() {
           <p>Tecnologia Detalhes</p>
           <i
             className="material-symbols-outlined"
-            onClick={() => setShowModalEdit(false)}
+            onClick={() => modalShowEdit()}
           >
             close
           </i>
