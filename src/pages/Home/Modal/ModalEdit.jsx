@@ -8,7 +8,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { useForm } from "react-hook-form";
-import { BtnDefault } from "../../../style/Global/Buttons";
+import { BtnDefault, BtnMedium } from "../../../style/Global/Buttons";
 import SelectModalAdd from "../../../components/Main/Select/SelectModalAdd";
 import { ModalEditSchema } from "../../../Validators/Schema";
 import { UserTechAddContext } from "../../../providers/UserTechAddContext";
@@ -61,9 +61,10 @@ function ModalEdit() {
           {errors.title?.message}
           <SelectModalAdd register={register} />
           {errors.status?.message}
-          {/*  */}
-          <BtnDefault type="submit">Salvar Alterações</BtnDefault>
-          <BtnDefault type="submit">Excluir</BtnDefault>
+          <div className="buttonModal">
+            <BtnDefault type="submit">Salvar Alterações</BtnDefault>
+            <BtnMedium type="submit">Excluir</BtnMedium>
+          </div>
         </FormEditTech>
       </ModalSection>
     </>
