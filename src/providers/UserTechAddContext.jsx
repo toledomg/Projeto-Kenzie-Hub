@@ -9,12 +9,10 @@ export const UserTechAddContext = createContext({});
 
 export const UserTechAddProvider = ({ children }) => {
   const { setShowModalAdd } = useContext(ModalTechContext);
-
   const { renderTech, setRenderTech } = useContext(UserTechContext);
 
   const [user, setUser] = useState("");
-
-  const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
+  const { editingTech, setEditingTech } = useState(null);
 
   const createTechProfile = async (data) => {
     const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
@@ -35,18 +33,27 @@ export const UserTechAddProvider = ({ children }) => {
     }
   };
 
-  const addTechProfile = async (data) => {
+  const editTechProfile = async (data, listId) => {
     const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
     // console.log(data);
     try {
-      const response = await api.post("users/techs", data, {
+      const response = await api.post(`/users/techs/${listId}`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      setRenderTech([...renderTech, response.data]);
+
+      const newTech = renderTech.map((tech) => {
+        if (listId === tech.id) {
+          return { ...renderTech, ...data };
+        } else {
+          return renderTech;
+        }
+      });
+
+      setRenderTech(newTech);
       setShowModalAdd(false);
-      toast.success("Cadastro realizado com sucesso");
+      toast.success("Cadastro editado com sucesso");
     } catch (error) {
       console.log(error);
 
@@ -76,10 +83,12 @@ export const UserTechAddProvider = ({ children }) => {
     <UserTechAddContext.Provider
       value={{
         createTechProfile,
-        addTechProfile,
+        editTechProfile,
         deleteTechProfile,
         renderTech,
         setRenderTech,
+        editingTech,
+        setEditingTech,
       }}
     >
       {children}

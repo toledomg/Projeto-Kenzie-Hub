@@ -3,9 +3,7 @@ import React, { useState, useContext } from "react";
 import { UserTechContext } from "./../../../providers/UserTechContext";
 import { ModalTechContext } from "./../../../providers/ModalTechContext";
 
-import Modal from "react-modal";
 import ModalEdit from "./../../../pages/Home/Modal/ModalEdit";
-Modal.setAppElement("#root");
 
 function RenderList() {
   const { renderTech } = useContext(UserTechContext);
@@ -22,16 +20,6 @@ function RenderList() {
 
   return (
     <>
-      {/* <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        contentLabel="Example Modal"
-        overlayClassName="modal-overlay"
-        className="modal-content"
-      >
-        <ModalEdit />;
-      </Modal> */}
-
       {showModalEdit === true ? (
         <ModalEdit setShowModalEdit={setShowModalEdit} />
       ) : (

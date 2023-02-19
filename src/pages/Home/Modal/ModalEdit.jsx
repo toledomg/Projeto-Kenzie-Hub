@@ -16,26 +16,22 @@ import InputDefer from "../../../components/Main/Form/InputDefer";
 import { ModalTechContext } from "./../../../providers/ModalTechContext";
 
 function ModalEdit() {
-  const [modalIsOpen, setIsOpen] = useState(false);
-  const {
-    showModalEdit,
-    setShowModalEdit,
-    showModalAdd,
-    setShowModalAdd,
-    modalShowAdd,
-    modalShowEdit,
-  } = useContext(ModalTechContext);
+  const { editTechProfile, renderTech, editingTech, setEditingTech } =
+    useContext(UserTechAddContext);
+  const { modalShowEdit } = useContext(ModalTechContext);
 
-  const { addTechProfile, renderTech } = useContext(UserTechAddContext);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(ModalEditSchema),
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      title: renderTech.title,
+      // status: editingTech.techs.content,
+    },
   });
+  console.log(renderTech);
 
-  // console.log(renderTech);
+  const submit = (data) => {
+    editTechProfile(data, editingTech.id);
+  };
+
   return (
     <>
       <ModalSection>
@@ -48,22 +44,30 @@ function ModalEdit() {
             close
           </i>
         </div>
-        <FormEditTech onSubmit={handleSubmit(addTechProfile)}>
-          <InputDefer
-            label="Tecnologia"
-            type="text"
-            id="title"
-            placeholder="Atualize aqui sua tecnologia"
-            {...register("title")}
-          />
-          {errors.title?.message}
-          <SelectModalAdd register={register} />
-          {errors.status?.message}
-          <div className="buttonModal">
-            <BtnDefault type="submit">Salvar Alterações</BtnDefault>
-            <BtnMedium type="submit">Excluir</BtnMedium>
-          </div>
-        </FormEditTech>
+        {...renderTech.map((tech) => (
+          <FormEditTech key={tech.id} onSubmit={handleSubmit(submit)}>
+            {console.log(tech.title)}
+            <InputDefer
+              disabled
+              label="Tecnologia"
+              type="text"
+              {...register("title")}
+            />
+
+            <SelectModalAdd register={register} />
+            <div className="buttonModal">
+              <BtnDefault
+                onClick={() => {
+                  setEditingTech(renderTech);
+                }}
+                type="submit"
+              >
+                Salvar Alterações
+              </BtnDefault>
+              <BtnMedium type="submit">Excluir</BtnMedium>
+            </div>
+          </FormEditTech>
+        ))}
       </ModalSection>
     </>
   );
