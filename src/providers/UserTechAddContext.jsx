@@ -11,8 +11,9 @@ export const UserTechAddProvider = ({ children }) => {
   const { setShowModalAdd } = useContext(ModalTechContext);
   const { renderTech, setRenderTech } = useContext(UserTechContext);
 
+  const { techID, setTechID } = useState(null);
+  const [editingNote, setEditingNote] = useState(null);
   const [user, setUser] = useState("");
-  const { editingTech, setEditingTech } = useState(null);
 
   const createTechProfile = async (data) => {
     const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
@@ -25,7 +26,9 @@ export const UserTechAddProvider = ({ children }) => {
       });
       setRenderTech([...renderTech, response.data]);
       setShowModalAdd(false);
-      toast.success("Cadastro realizado com sucesso");
+      toast.success(
+        `A Categoria ${response.data.title} foi cadastrada com sucesso`
+      );
     } catch (error) {
       console.log(error);
 
@@ -33,18 +36,18 @@ export const UserTechAddProvider = ({ children }) => {
     }
   };
 
-  const editTechProfile = async (data, listId) => {
+  const editTechProfile = async (data, id) => {
     const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
     console.log(data);
     try {
-      const response = await api.put(`/users/techs/${listId}`, data, {
+      const response = await api.put(`/users/techs/${id}`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
 
       const newTech = renderTech.map((tech) => {
-        if (listId === tech.id) {
+        if (id === tech.id) {
           return { ...renderTech, ...data };
         } else {
           return renderTech;
@@ -53,7 +56,9 @@ export const UserTechAddProvider = ({ children }) => {
 
       setRenderTech(newTech);
       setShowModalAdd(false);
-      toast.success("Cadastro editado com sucesso");
+      toast.success(
+        `A Categoria ${response.data.title} foi editada com sucesso`
+      );
     } catch (error) {
       console.log(error);
 
@@ -65,14 +70,16 @@ export const UserTechAddProvider = ({ children }) => {
     const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
     // console.log(data);
     try {
-      const response = await api.delete(`users/techs/${id}`, {
+      const response = await api.delete(`/users/techs/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
       setRenderTech(renderTech.filter((tech) => tech.id !== id));
       setShowModalAdd(false);
-      toast.success("Tecnologia deletada com sucesso");
+      toast.success(
+        `A Categoria ${response.data.title} foi deletada com sucesso`
+      );
     } catch (error) {
       console.log(error);
       toast.error("Algo deu errado");
@@ -87,8 +94,8 @@ export const UserTechAddProvider = ({ children }) => {
         deleteTechProfile,
         renderTech,
         setRenderTech,
-        editingTech,
-        setEditingTech,
+        techID,
+        setTechID,
       }}
     >
       {children}

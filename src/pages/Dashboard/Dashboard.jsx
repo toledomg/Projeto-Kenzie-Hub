@@ -26,8 +26,6 @@ function Dashboard() {
     modalShowEdit,
   } = useContext(ModalTechContext);
 
-  console.log(showModalEdit);
-
   const navigate = useNavigate();
   const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
   const [user, setUser] = useState();

@@ -20,12 +20,6 @@ function RenderList() {
 
   return (
     <>
-      {showModalEdit === true ? (
-        <ModalEdit setShowModalEdit={setShowModalEdit} />
-      ) : (
-        ""
-      )}
-
       {renderTech.length !== 0 ? (
         renderTech.map((tech, index) => (
           <li key={index}>
@@ -51,6 +45,7 @@ function RenderList() {
           </div>
         </section>
       )}
+      {showModalEdit && <ModalEdit setShowModalEdit={setShowModalEdit} />}
     </>
   );
 }

@@ -1,7 +1,5 @@
 import React, { useState, useContext } from "react";
 
-import Modal from "react-modal";
-Modal.setAppElement("#root");
 import { ModalSection, ModalSectionTrash, FormEditTech } from "./style";
 
 import * as yup from "yup";
@@ -16,27 +14,30 @@ import InputDefer from "../../../components/Main/Form/InputDefer";
 import { ModalTechContext } from "./../../../providers/ModalTechContext";
 
 function ModalEdit() {
-  const { editTechProfile, renderTech, editingTech, setEditingTech } =
+  const { editTechProfile, deleteTechProfile, renderTech, techID, setTechID } =
     useContext(UserTechAddContext);
   const { modalShowEdit } = useContext(ModalTechContext);
+  console.log(renderTech);
 
   const { register, handleSubmit } = useForm({
     defaultValues: {
       title: renderTech.title,
-      // status: editingTech.techs.content,
+      status: renderTech.status,
     },
   });
-  console.log(renderTech);
 
   const submit = (data) => {
-    editTechProfile(data, editingTech.id);
+    editTechProfile(data, techID);
   };
 
   return (
     <>
-      <ModalSection>
-        <section>
-          <div>
+      <ModalSection className="modalBox">
+        {renderTech.map((tech) => {
+          return console.log(tech.title);
+        })}
+        <section className="containerModal">
+          <section className=" divTitle">
             <p>Tecnologia Detalhes</p>
             <i
               className="material-symbols-outlined"
@@ -44,75 +45,34 @@ function ModalEdit() {
             >
               close
             </i>
-          </div>
-          <form>
-            {renderTech.map((tech) => {
-              <>
-                <input
-                  type="text"
-                  {...register("title")}
-                  placeholder={tech.title}
-                />
-                <label htmlFor="selectModulo">Selecionar status</label>
-                <select {...register("status")}>
-                  <option value="">Selecionar status</option>
-                  <option id="ini" value="Iniciante">
-                    Iniciante
-                  </option>
-                  <option id="int" value="Intermediário">
-                    Intermediário
-                  </option>
-                  <option id="ava" value="Avançado">
-                    Avançado
-                  </option>
-                </select>
-              </>;
-            })}
-            <div className="buttonModal">
-              <BtnDefault
-                onClick={() => setEditingTech(renderTech)}
-                type="submit"
-              >
-                Salvar Alterações
-              </BtnDefault>
-              <BtnMedium type="submit">Excluir</BtnMedium>
-            </div>
-          </form>
-        </section>
-      </ModalSection>
+          </section>
+          <FormEditTech onSubmit={handleSubmit(submit)}>
+            {console.log(techID)}
 
-      {/* <ModalSection>
-        <div className="divTitle">
-          <p>Tecnologia Detalhes</p>
-          <i
-            className="material-symbols-outlined"
-            onClick={() => modalShowEdit()}
-          >
-            close
-          </i>
-        </div>
-        {...renderTech.map((tech) => (
-          <FormEditTech key={tech.id} onSubmit={handleSubmit(submit)}>
-            {console.log(tech.title)}
             <input
-              disabled
               type="text"
+              value={renderTech.title}
               {...register("title")}
-              placeholder={tech.title}
             />
+            {/* <InputDefer
+            label="Nome da Tecnologia"
+            type="text"
+            {...register("title")}
+          /> */}
+
             <SelectModalAdd register={register} />
             <div className="buttonModal">
-              <BtnDefault
-                onClick={() => setEditingTech(renderTech)}
+              <BtnDefault type="submit">Salvar Alterações</BtnDefault>
+              <BtnMedium
+                onClick={handleSubmit(deleteTechProfile)}
                 type="submit"
               >
-                Salvar Alterações
-              </BtnDefault>
-              <BtnMedium type="submit">Excluir</BtnMedium>
+                Excluir
+              </BtnMedium>
             </div>
           </FormEditTech>
-        ))}
-      </ModalSection> */}
+        </section>
+      </ModalSection>
     </>
   );
 }

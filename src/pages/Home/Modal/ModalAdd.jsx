@@ -28,29 +28,31 @@ function ModalAdd() {
   return (
     <>
       <ModalSection>
-        <div className="divTitle ">
-          <p>Cadastrar Tecnologia</p>
-          <i
-            className="material-symbols-outlined"
-            onClick={() => modalShowAdd()}
-          >
-            close
-          </i>
-        </div>
-        <FormEditTech onSubmit={handleSubmit(createTechProfile)}>
-          <InputDefer
-            label="Tecnologia"
-            type="text"
-            id="title"
-            placeholder="Digite aqui sua tecnologia"
-            {...register("title")}
-          />
-          {errors.title?.message}
-          <SelectModalAdd register={register} />
-          {errors.status?.message}
+        <section className="containerModal">
+          <div className="divTitle ">
+            <p>Cadastrar Tecnologia</p>
+            <i
+              className="material-symbols-outlined"
+              onClick={() => modalShowAdd()}
+            >
+              close
+            </i>
+          </div>
+          <FormEditTech onSubmit={handleSubmit(createTechProfile)}>
+            <InputDefer
+              label="Tecnologia"
+              type="text"
+              id="title"
+              placeholder="Digite aqui sua tecnologia"
+              {...register("title")}
+            />
+            {errors.title?.message}
+            <SelectModalAdd register={register} />
+            {errors.status?.message}
 
-          <BtnDefault type="submit">Cadastrar Tecnologia</BtnDefault>
-        </FormEditTech>
+            <BtnDefault type="submit">Cadastrar Tecnologia</BtnDefault>
+          </FormEditTech>
+        </section>
       </ModalSection>
     </>
   );
