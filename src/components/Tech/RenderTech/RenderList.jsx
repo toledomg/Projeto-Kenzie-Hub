@@ -3,20 +3,9 @@ import React, { useState, useContext } from "react";
 import { UserTechContext } from "./../../../providers/UserTechContext";
 import { ModalTechContext } from "./../../../providers/ModalTechContext";
 
-import ModalEdit from "./../../../pages/Home/Modal/ModalEdit";
-
 function RenderList() {
   const { renderTech } = useContext(UserTechContext);
-  const { showModalEdit, setShowModalEdit, modalShowEdit } =
-    useContext(ModalTechContext);
-
-  const [modalIsOpen, setIsOpen] = useState(false);
-  function openModal() {
-    setIsOpen(true);
-  }
-  function closeModal() {
-    setIsOpen(false);
-  }
+  const { modalShowEdit } = useContext(ModalTechContext);
 
   return (
     <>
@@ -45,7 +34,6 @@ function RenderList() {
           </div>
         </section>
       )}
-      {showModalEdit && <ModalEdit setShowModalEdit={setShowModalEdit} />}
     </>
   );
 }

@@ -8,10 +8,10 @@ export const ModalSection = styled.section`
   position: fixed;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  top: 30vh;
 
-  z-index: 99999;
+  z-index: 99;
 
   .containerModal {
     width: 369px;
@@ -30,7 +30,7 @@ export const ModalSection = styled.section`
   }
 
   ::backdrop {
-    background: white;
+    background: rgba(0, 0, 0, 0.25);
   }
 
   .divTitle {

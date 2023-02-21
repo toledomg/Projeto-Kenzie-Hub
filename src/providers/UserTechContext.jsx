@@ -4,8 +4,8 @@ import { api } from "../services/api";
 export const UserTechContext = createContext({});
 
 export const UserTechProvider = ({ children }) => {
-  const [user, setUser] = useState("");
-  const [renderTech, setRenderTech] = useState("");
+  const [user, setUser] = useState([]);
+  const [renderTech, setRenderTech] = useState([]);
 
   const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
 

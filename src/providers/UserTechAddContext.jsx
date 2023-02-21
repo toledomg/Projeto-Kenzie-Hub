@@ -8,12 +8,10 @@ import { ModalTechContext } from "./ModalTechContext";
 export const UserTechAddContext = createContext({});
 
 export const UserTechAddProvider = ({ children }) => {
-  const { setShowModalAdd } = useContext(ModalTechContext);
+  const { setShowModalAdd, setShowModalEdit } = useContext(ModalTechContext);
   const { renderTech, setRenderTech } = useContext(UserTechContext);
 
   const { techID, setTechID } = useState(null);
-  const [editingNote, setEditingNote] = useState(null);
-  const [user, setUser] = useState("");
 
   const createTechProfile = async (data) => {
     const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
@@ -27,7 +25,7 @@ export const UserTechAddProvider = ({ children }) => {
       setRenderTech([...renderTech, response.data]);
       setShowModalAdd(false);
       toast.success(
-        `A Categoria ${response.data.title} foi cadastrada com sucesso`
+        `A Tecnologia ${response.data.title} foi cadastrada com sucesso`
       );
     } catch (error) {
       console.log(error);
@@ -40,11 +38,16 @@ export const UserTechAddProvider = ({ children }) => {
     const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
     console.log(data);
     try {
-      const response = await api.put(`/users/techs/${id}`, data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await api.put(
+        "/users/techs/c250b783-58ea-47ac-a467-0fb9d7c10252",
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(renderTech);
 
       const newTech = renderTech.map((tech) => {
         if (id === tech.id) {
@@ -53,11 +56,12 @@ export const UserTechAddProvider = ({ children }) => {
           return renderTech;
         }
       });
+      console.log(newTech);
 
       setRenderTech(newTech);
-      setShowModalAdd(false);
+      setShowModalEdit(false);
       toast.success(
-        `A Categoria ${response.data.title} foi editada com sucesso`
+        `A Tecnologia ${response.data.title} foi editada com sucesso`
       );
     } catch (error) {
       console.log(error);
@@ -78,7 +82,7 @@ export const UserTechAddProvider = ({ children }) => {
       setRenderTech(renderTech.filter((tech) => tech.id !== id));
       setShowModalAdd(false);
       toast.success(
-        `A Categoria ${response.data.title} foi deletada com sucesso`
+        `A Tecnologia ${response.data.title} foi deletada com sucesso`
       );
     } catch (error) {
       console.log(error);

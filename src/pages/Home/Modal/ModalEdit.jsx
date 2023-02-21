@@ -1,41 +1,36 @@
 import React, { useState, useContext } from "react";
+import { useForm } from "react-hook-form";
 
 import { ModalSection, ModalSectionTrash, FormEditTech } from "./style";
 
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-
-import { useForm } from "react-hook-form";
 import { BtnDefault, BtnMedium } from "../../../style/Global/Buttons";
 import SelectModalAdd from "../../../components/Main/Select/SelectModalAdd";
-import { ModalEditSchema } from "../../../Validators/Schema";
+
 import { UserTechAddContext } from "../../../providers/UserTechAddContext";
-import InputDefer from "../../../components/Main/Form/InputDefer";
 import { ModalTechContext } from "./../../../providers/ModalTechContext";
 
 function ModalEdit() {
-  const { editTechProfile, deleteTechProfile, renderTech, techID, setTechID } =
+  const { editTechProfile, deleteTechProfile, renderTech, techID } =
     useContext(UserTechAddContext);
+
   const { modalShowEdit } = useContext(ModalTechContext);
   console.log(renderTech);
+  console.log(techID);
 
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      title: renderTech.title,
-      status: renderTech.status,
+      // title: techID.title,
+      // status: techID.status,
     },
   });
 
   const submit = (data) => {
-    editTechProfile(data, techID);
+    editTechProfile(data);
   };
 
   return (
     <>
-      <ModalSection className="modalBox">
-        {renderTech.map((tech) => {
-          return console.log(tech.title);
-        })}
+      <ModalSection className="modalBox" role="dialog">
         <section className="containerModal">
           <section className=" divTitle">
             <p>Tecnologia Detalhes</p>
@@ -47,18 +42,7 @@ function ModalEdit() {
             </i>
           </section>
           <FormEditTech onSubmit={handleSubmit(submit)}>
-            {console.log(techID)}
-
-            <input
-              type="text"
-              value={renderTech.title}
-              {...register("title")}
-            />
-            {/* <InputDefer
-            label="Nome da Tecnologia"
-            type="text"
-            {...register("title")}
-          /> */}
+            <input type="text" {...register("title")} />
 
             <SelectModalAdd register={register} />
             <div className="buttonModal">
