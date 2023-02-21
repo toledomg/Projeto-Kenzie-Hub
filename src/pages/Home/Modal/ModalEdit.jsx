@@ -1,71 +1,63 @@
 import React, { useState, useContext } from "react";
+import { useForm } from "react-hook-form";
 
-import Modal from "react-modal";
-Modal.setAppElement("#root");
 import { ModalSection, ModalSectionTrash, FormEditTech } from "./style";
 
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-
-import { useForm } from "react-hook-form";
 import { BtnDefault, BtnMedium } from "../../../style/Global/Buttons";
 import SelectModalAdd from "../../../components/Main/Select/SelectModalAdd";
-import { ModalEditSchema } from "../../../Validators/Schema";
+
 import { UserTechAddContext } from "../../../providers/UserTechAddContext";
-import InputDefer from "../../../components/Main/Form/InputDefer";
-import InputCad from "../../../components/Main/Form/InputCad";
+import { UserTechContext } from "./../../../providers/UserTechContext";
+import { ModalTechContext } from "./../../../providers/ModalTechContext";
 
 function ModalEdit() {
-  const [modalIsOpen, setIsOpen] = useState(false);
-  // console.log(ShowModalAdd);
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  const { addTechProfile, renderTech, setShowModalEdit } =
+  const { editTechProfile, deleteTechProfile, renderTech } =
     useContext(UserTechAddContext);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(ModalEditSchema),
+
+  const { attTech, setAttTech } = useContext(UserTechContext);
+
+  const { modalShowEdit } = useContext(ModalTechContext);
+
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      title: attTech.title,
+      status: attTech.status,
+    },
   });
 
-  // console.log(renderTech);
+  const submit = (data) => {
+    editTechProfile(data, attTech.id);
+  };
+
+  const delTech = () => {
+    deleteTechProfile(attTech.id);
+  };
 
   return (
     <>
-      <ModalSection>
-        <div className="divTitle ">
-          <p>Tecnologia Detalhes</p>
-          <i
-            className="material-symbols-outlined"
-            onClick={() => setShowModalEdit(false)}
-          >
-            close
-          </i>
-        </div>
-        <FormEditTech onSubmit={handleSubmit(addTechProfile)}>
-          <InputDefer
-            label="Tecnologia"
-            type="text"
-            id="title"
-            placeholder="Atualize aqui sua tecnologia"
-            {...register("title")}
-          />
-          {errors.title?.message}
-          <SelectModalAdd register={register} />
-          {errors.status?.message}
-          <div className="buttonModal">
-            <BtnDefault type="submit">Salvar Alterações</BtnDefault>
-            <BtnMedium type="submit">Excluir</BtnMedium>
-          </div>
-        </FormEditTech>
+      <ModalSection className="modalBox" role="dialog">
+        <section className="containerModal">
+          <section className=" divTitle">
+            <p>Tecnologia Detalhes</p>
+            <i
+              className="material-symbols-outlined"
+              onClick={() => modalShowEdit()}
+            >
+              close
+            </i>
+          </section>
+          <FormEditTech onSubmit={handleSubmit(submit)}>
+            <input type="text" {...register("title")} />
+
+            <SelectModalAdd register={register} />
+            <div className="buttonModal">
+              <BtnDefault type="submit">Salvar Alterações</BtnDefault>
+              <BtnMedium onClick={handleSubmit(delTech)} type="submit">
+                Excluir
+              </BtnMedium>
+            </div>
+          </FormEditTech>
+        </section>
       </ModalSection>
     </>
   );

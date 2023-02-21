@@ -11,6 +11,7 @@ import RenderTech from "./../../components/Tech/RenderTech/RenderTech";
 import spinner from "../../assets/img/spinner.svg";
 
 import ModalAdd from "../Home/Modal/ModalAdd";
+import ModalEdit from "../Home/Modal/ModalEdit";
 import { ModalTechContext } from "./../../providers/ModalTechContext";
 
 let Name = [];
@@ -23,7 +24,7 @@ function Dashboard() {
     showModalAdd,
     setShowModalAdd,
     modalShowAdd,
-    modalShow,
+    modalShowEdit,
   } = useContext(ModalTechContext);
 
   const navigate = useNavigate();
@@ -77,14 +78,11 @@ function Dashboard() {
         exit={{ opacity: 0 }}
         transition={{ opacity: 1 }}
       >
+        {showModalEdit && <ModalEdit setShowModalEdit={setShowModalEdit} />}
+        {showModalAdd && <ModalAdd setShowModalAdd={setShowModalAdd} />}
         <Nav>
           <Header exitPage={exitPage} />
         </Nav>
-        {showModalAdd === true ? (
-          <ModalAdd setShowModalAdd={setShowModalAdd} />
-        ) : (
-          ""
-        )}
         <Section>
           <div>
             <h1>Olá, {Name}.</h1>
@@ -104,7 +102,7 @@ function Dashboard() {
                 </div>
               </>
             ) : (
-              <RenderTech setShowModalAdd={setShowModalAdd} />
+              <RenderTech />
             )}
           </SectionInfo>
         </Section>

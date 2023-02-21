@@ -1,37 +1,36 @@
 import styled from "styled-components";
 
 export const ModalSection = styled.section`
-  .modalBox {
-    background: rgba(18, 18, 20, 0.5);
+  background: rgba(18, 18, 20, 0.5);
 
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    top: 0;
-  }
-
-  width: 369px;
-  height: 342px;
-
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 
-  background-color: var(--color-gray-3);
-  /* border: 1px solid var(--color-gray-0); */
+  z-index: 99;
 
-  box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
-  border-radius: 4px;
+  .containerModal {
+    width: 369px;
+    height: 342px;
 
-  /* padding: 68px 22px 32px; */
-  gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  margin: 25vh auto;
+    background-color: var(--color-gray-3);
+
+    box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+
+    gap: 20px;
+  }
 
   ::backdrop {
-    background: white;
+    background: rgba(0, 0, 0, 0.25);
   }
 
   .divTitle {
@@ -288,6 +287,8 @@ export const FormEditTech = styled.form`
   }
 
   .buttonModal {
+    width: 100%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -295,10 +296,10 @@ export const FormEditTech = styled.form`
     gap: 5px;
 
     button {
-      width: 100%;
+      width: 49%;
       height: 50px;
 
-      padding: 0 10px;
+      padding: 10px 5px;
     }
   }
 `;
