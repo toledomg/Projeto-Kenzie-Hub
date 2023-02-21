@@ -15,7 +15,6 @@ function ModalEdit() {
     useContext(UserTechAddContext);
 
   const { attTech, setAttTech } = useContext(UserTechContext);
-  console.log(renderTech);
 
   const { modalShowEdit } = useContext(ModalTechContext);
 
@@ -28,6 +27,10 @@ function ModalEdit() {
 
   const submit = (data) => {
     editTechProfile(data, attTech.id);
+  };
+
+  const delTech = () => {
+    deleteTechProfile(attTech.id);
   };
 
   return (
@@ -49,10 +52,7 @@ function ModalEdit() {
             <SelectModalAdd register={register} />
             <div className="buttonModal">
               <BtnDefault type="submit">Salvar Alterações</BtnDefault>
-              <BtnMedium
-                onClick={handleSubmit(deleteTechProfile)}
-                type="submit"
-              >
+              <BtnMedium onClick={handleSubmit(delTech)} type="submit">
                 Excluir
               </BtnMedium>
             </div>

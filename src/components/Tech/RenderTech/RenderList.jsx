@@ -4,7 +4,7 @@ import { UserTechContext } from "./../../../providers/UserTechContext";
 import { ModalTechContext } from "./../../../providers/ModalTechContext";
 
 function RenderList() {
-  const { renderTech, attTech, setAttTech } = useContext(UserTechContext);
+  const { renderTech, setAttTech } = useContext(UserTechContext);
   const { modalShowEdit } = useContext(ModalTechContext);
 
   return (
