@@ -4,7 +4,7 @@ import { UserTechContext } from "./../../../providers/UserTechContext";
 import { ModalTechContext } from "./../../../providers/ModalTechContext";
 
 function RenderList() {
-  const { renderTech } = useContext(UserTechContext);
+  const { renderTech, attTech, setAttTech } = useContext(UserTechContext);
   const { modalShowEdit } = useContext(ModalTechContext);
 
   return (
@@ -16,11 +16,12 @@ function RenderList() {
             <section>
               <p>{tech.status}</p>
               <i
-                onClick={() => modalShowEdit()}
+                onClick={() => modalShowEdit(setAttTech(tech))}
                 className="material-symbols-outlined"
               >
                 delete
               </i>
+              {console.log(attTech)}
             </section>
           </li>
         ))

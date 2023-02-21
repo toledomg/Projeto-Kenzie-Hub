@@ -11,8 +11,6 @@ export const UserTechAddProvider = ({ children }) => {
   const { setShowModalAdd, setShowModalEdit } = useContext(ModalTechContext);
   const { renderTech, setRenderTech } = useContext(UserTechContext);
 
-  const { techID, setTechID } = useState(null);
-
   const createTechProfile = async (data) => {
     const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
     console.log(data);
@@ -38,15 +36,11 @@ export const UserTechAddProvider = ({ children }) => {
     const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
     console.log(data);
     try {
-      const response = await api.put(
-        "/users/techs/c250b783-58ea-47ac-a467-0fb9d7c10252",
-        data,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await api.put("/users/techs/" + id, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       console.log(renderTech);
 
       const newTech = renderTech.map((tech) => {
@@ -56,7 +50,6 @@ export const UserTechAddProvider = ({ children }) => {
           return renderTech;
         }
       });
-      console.log(newTech);
 
       setRenderTech(newTech);
       setShowModalEdit(false);
@@ -98,8 +91,6 @@ export const UserTechAddProvider = ({ children }) => {
         deleteTechProfile,
         renderTech,
         setRenderTech,
-        techID,
-        setTechID,
       }}
     >
       {children}

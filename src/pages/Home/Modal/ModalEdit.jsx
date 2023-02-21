@@ -7,25 +7,27 @@ import { BtnDefault, BtnMedium } from "../../../style/Global/Buttons";
 import SelectModalAdd from "../../../components/Main/Select/SelectModalAdd";
 
 import { UserTechAddContext } from "../../../providers/UserTechAddContext";
+import { UserTechContext } from "./../../../providers/UserTechContext";
 import { ModalTechContext } from "./../../../providers/ModalTechContext";
 
 function ModalEdit() {
-  const { editTechProfile, deleteTechProfile, renderTech, techID } =
+  const { editTechProfile, deleteTechProfile, renderTech } =
     useContext(UserTechAddContext);
 
-  const { modalShowEdit } = useContext(ModalTechContext);
+  const { attTech, setAttTech } = useContext(UserTechContext);
   console.log(renderTech);
-  console.log(techID);
+
+  const { modalShowEdit } = useContext(ModalTechContext);
 
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      // title: techID.title,
-      // status: techID.status,
+      title: attTech.title,
+      status: attTech.status,
     },
   });
 
   const submit = (data) => {
-    editTechProfile(data);
+    editTechProfile(data, attTech.id);
   };
 
   return (

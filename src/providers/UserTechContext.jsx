@@ -6,6 +6,7 @@ export const UserTechContext = createContext({});
 export const UserTechProvider = ({ children }) => {
   const [user, setUser] = useState([]);
   const [renderTech, setRenderTech] = useState([]);
+  const [attTech, setAttTech] = useState(null);
 
   const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
 
@@ -34,6 +35,8 @@ export const UserTechProvider = ({ children }) => {
         setUser,
         renderTech,
         setRenderTech,
+        attTech,
+        setAttTech,
       }}
     >
       {children}

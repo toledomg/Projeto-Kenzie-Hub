@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
 export const ModalTechContext = createContext({});
 
@@ -6,7 +6,7 @@ export const ModalTechProvider = ({ children }) => {
   const [showModalEdit, setShowModalEdit] = useState(false);
   const [showModalAdd, setShowModalAdd] = useState(false);
 
-  const modalShowEdit = () => {
+  const modalShowEdit = (event) => {
     if (showModalEdit === false) {
       setShowModalEdit(true);
     } else {
