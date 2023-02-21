@@ -51,7 +51,12 @@ export const UserTechAddProvider = ({ children }) => {
         }
       });
 
-      setRenderTech(newTech);
+      setRenderTech([
+        ...renderTech.filter((tech) => tech.id !== id),
+        response.data,
+      ]);
+
+      // setRenderTech(newTech);
       setShowModalEdit(false);
       toast.success(
         `A Tecnologia ${response.data.title} foi editada com sucesso`

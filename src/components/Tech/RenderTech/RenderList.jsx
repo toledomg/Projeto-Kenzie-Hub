@@ -21,7 +21,6 @@ function RenderList() {
               >
                 delete
               </i>
-              {console.log(attTech)}
             </section>
           </li>
         ))
