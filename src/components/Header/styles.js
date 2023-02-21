@@ -10,14 +10,3 @@ export const HeaderHubDash = styled.header`
     color: var(--color-primary);
   }
 `;
-export const DivHeader = styled.div`
-  display: flex;
-
-  span {
-    color: var(--color-gray-0);
-  }
-
-  .sp2 {
-    color: var(--color-gray-1);
-  }
-`;

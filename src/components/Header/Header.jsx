@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { HeaderHubDash, DivHeader } from "./styles";
+import { HeaderHubDash } from "./styles";
 function HeaderD({ exitPage }) {
   return (
     <>
@@ -10,10 +10,6 @@ function HeaderD({ exitPage }) {
           Sair
         </Link>
       </HeaderHubDash>
-      <DivHeader>
-        <span>teste</span>
-        <span className="sp2">teste2</span>
-      </DivHeader>
     </>
   );
 }

@@ -35,6 +35,53 @@ function ModalEdit() {
   return (
     <>
       <ModalSection>
+        <section>
+          <div>
+            <p>Tecnologia Detalhes</p>
+            <i
+              className="material-symbols-outlined"
+              onClick={() => modalShowEdit()}
+            >
+              close
+            </i>
+          </div>
+          <form>
+            {renderTech.map((tech) => {
+              <>
+                <input
+                  type="text"
+                  {...register("title")}
+                  placeholder={tech.title}
+                />
+                <label htmlFor="selectModulo">Selecionar status</label>
+                <select {...register("status")}>
+                  <option value="">Selecionar status</option>
+                  <option id="ini" value="Iniciante">
+                    Iniciante
+                  </option>
+                  <option id="int" value="Intermediário">
+                    Intermediário
+                  </option>
+                  <option id="ava" value="Avançado">
+                    Avançado
+                  </option>
+                </select>
+              </>;
+            })}
+            <div className="buttonModal">
+              <BtnDefault
+                onClick={() => setEditingTech(renderTech)}
+                type="submit"
+              >
+                Salvar Alterações
+              </BtnDefault>
+              <BtnMedium type="submit">Excluir</BtnMedium>
+            </div>
+          </form>
+        </section>
+      </ModalSection>
+
+      {/* <ModalSection>
         <div className="divTitle">
           <p>Tecnologia Detalhes</p>
           <i
@@ -47,19 +94,16 @@ function ModalEdit() {
         {...renderTech.map((tech) => (
           <FormEditTech key={tech.id} onSubmit={handleSubmit(submit)}>
             {console.log(tech.title)}
-            <InputDefer
+            <input
               disabled
-              label="Tecnologia"
               type="text"
               {...register("title")}
+              placeholder={tech.title}
             />
-
             <SelectModalAdd register={register} />
             <div className="buttonModal">
               <BtnDefault
-                onClick={() => {
-                  setEditingTech(renderTech);
-                }}
+                onClick={() => setEditingTech(renderTech)}
                 type="submit"
               >
                 Salvar Alterações
@@ -68,7 +112,7 @@ function ModalEdit() {
             </div>
           </FormEditTech>
         ))}
-      </ModalSection>
+      </ModalSection> */}
     </>
   );
 }

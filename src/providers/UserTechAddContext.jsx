@@ -35,9 +35,9 @@ export const UserTechAddProvider = ({ children }) => {
 
   const editTechProfile = async (data, listId) => {
     const token = JSON.parse(localStorage.getItem("@HubKenzieToken"));
-    // console.log(data);
+    console.log(data);
     try {
-      const response = await api.post(`/users/techs/${listId}`, data, {
+      const response = await api.put(`/users/techs/${listId}`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
