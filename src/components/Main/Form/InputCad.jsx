@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import InputDefer from "./InputDefer";
+import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 
 function InputCad({ register, errors }) {
+  const [cadIsHidden, setCadIsHidden] = useState(true);
+  const [cadConfirmIsHidden, setCadConfirmIsHidden] = useState(true);
   return (
     <>
       <InputDefer
@@ -22,23 +25,41 @@ function InputCad({ register, errors }) {
         error={errors.email?.message}
       />
 
-      <InputDefer
-        label="Senha"
-        type="password"
-        id="password"
-        placeholder="Digite sua Senha"
-        {...register("password")}
-        error={errors.password?.message}
-      />
+      <section className="cad_verifyPass">
+        <InputDefer
+          label="Senha"
+          type={cadIsHidden ? "password" : "text"}
+          id="password"
+          placeholder="Digite sua Senha"
+          {...register("password")}
+          error={errors.password?.message}
+        />
+        <span
+          id="visibility"
+          className="material-symbols-outlined"
+          onClick={() => setCadIsHidden(!cadIsHidden)}
+        >
+          {cadIsHidden ? <MdVisibility /> : <MdVisibilityOff />}
+        </span>
+      </section>
 
-      <InputDefer
-        label="Confirmar Senha"
-        type="password"
-        id="passwordConfirm"
-        placeholder="Digite novamente sua Senha"
-        {...register("passwordConfirm")}
-        error={errors.passwordConfirm?.message}
-      />
+      <section className="cad_verifyPass">
+        <InputDefer
+          label="Confirmar Senha"
+          type={cadConfirmIsHidden ? "password" : "text"}
+          id="passwordConfirm"
+          placeholder="Digite novamente sua Senha"
+          {...register("passwordConfirm")}
+          error={errors.passwordConfirm?.message}
+        />
+        <span
+          id="visibility"
+          className="material-symbols-outlined"
+          onClick={() => setCadConfirmIsHidden(!cadConfirmIsHidden)}
+        >
+          {cadConfirmIsHidden ? <MdVisibility /> : <MdVisibilityOff />}
+        </span>
+      </section>
 
       <InputDefer
         label="Bio"
