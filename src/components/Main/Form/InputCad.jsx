@@ -34,13 +34,9 @@ function InputCad({ register, errors }) {
           {...register("password")}
           error={errors.password?.message}
         />
-        <span
-          id="visibility"
-          className="material-symbols-outlined"
-          onClick={() => setCadIsHidden(!cadIsHidden)}
-        >
+        <i id="visibility" onClick={() => setCadIsHidden(!cadIsHidden)}>
           {cadIsHidden ? <MdVisibility /> : <MdVisibilityOff />}
-        </span>
+        </i>
       </section>
 
       <section className="cad_verifyPass">
@@ -52,13 +48,13 @@ function InputCad({ register, errors }) {
           {...register("passwordConfirm")}
           error={errors.passwordConfirm?.message}
         />
-        <span
+        <i
           id="visibility"
           className="material-symbols-outlined"
           onClick={() => setCadConfirmIsHidden(!cadConfirmIsHidden)}
         >
           {cadConfirmIsHidden ? <MdVisibility /> : <MdVisibilityOff />}
-        </span>
+        </i>
       </section>
 
       <InputDefer

@@ -76,18 +76,16 @@ export const FormCreate = styled.form`
     position: relative;
     margin-bottom: 5px;
 
-    display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
   }
 
-  .cad_verifyPass > span {
+  .cad_verifyPass > i {
     font-size: 0.75rem;
 
     position: absolute;
-    top: 15px;
-    right: -9px;
+    top: 10px;
+    right: 0;
 
     height: 39px;
     display: flex;

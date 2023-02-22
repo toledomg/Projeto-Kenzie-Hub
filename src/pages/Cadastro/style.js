@@ -23,7 +23,7 @@ export const CadSection = styled.section`
     justify-content: space-between;
     align-items: center;
 
-    padding: 5px;
+    /* padding: 5px; */
     gap: 10px;
   }
 
