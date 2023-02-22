@@ -43,6 +43,35 @@ export const FormCreate = styled.form`
     color: var(--color-gray-0);
   }
 
+  .verify_pass {
+    position: relative;
+    margin-bottom: 5px;
+  }
+  .verify_pass > p {
+    margin-top: 10px;
+  }
+
+  .verify_pass > span {
+    font-size: 0.75rem;
+
+    position: absolute;
+    top: 0px;
+    right: 0px;
+
+    height: 39px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--color-gray-1);
+    background: var(--color-gray-2);
+    border: none;
+    border-radius: 4px;
+
+    padding: 0px 14px;
+    cursor: pointer;
+  }
+
   label {
     color: var(--color-gray-1);
   }
