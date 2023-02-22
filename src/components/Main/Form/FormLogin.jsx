@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 
 import { api } from "./../../../services/api";
 import { toast } from "react-toastify";
@@ -12,6 +13,8 @@ import { FormLoginContext } from "./../../../providers/FormLoginContext";
 function FormLogin({ navigate }) {
   const { register, handleSubmit, reset, errors } =
     useContext(FormLoginContext);
+
+  const [isHidden, setIsHidden] = useState(true);
 
   const onSubmitFunction = async (data) => {
     try {
@@ -44,13 +47,22 @@ function FormLogin({ navigate }) {
       />
       {errors.email?.message}
       <label htmlFor="password">Senha</label>
-      <input
-        type="password"
-        {...register("password")}
-        id="password"
-        placeholder="Digite sua Senha"
-      />
-      {errors.password?.message}
+      <section className="verify_pass">
+        <input
+          type={isHidden ? "password" : "text"}
+          {...register("password")}
+          id="password"
+          placeholder="Digite sua Senha"
+        />
+        <p>{errors.password?.message}</p>
+        <span
+          id="visibility"
+          className="material-symbols-outlined"
+          onClick={() => setIsHidden(!isHidden)}
+        >
+          {isHidden ? <MdVisibility /> : <MdVisibilityOff />}
+        </span>
+      </section>
       <BtnDefault type="submit">Entrar</BtnDefault>
     </FormCreate>
   );
