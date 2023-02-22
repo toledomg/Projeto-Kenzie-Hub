@@ -72,6 +72,37 @@ export const FormCreate = styled.form`
     cursor: pointer;
   }
 
+  .cad_verifyPass {
+    position: relative;
+    margin-bottom: 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .cad_verifyPass > span {
+    font-size: 0.75rem;
+
+    position: absolute;
+    top: 15px;
+    right: -9px;
+
+    height: 39px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--color-gray-1);
+    background: var(--color-gray-2);
+    border: none;
+    border-radius: 4px;
+
+    padding: 0px 14px;
+    cursor: pointer;
+  }
+
   label {
     color: var(--color-gray-1);
   }
