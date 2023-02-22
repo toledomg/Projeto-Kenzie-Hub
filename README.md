@@ -1,4 +1,4 @@
-# S2-16 | 🏁 Entrega - Projeto: Hamburgueria da Kenzie
+# S4-07 | 🏁 Entrega - Projeto: KenzieHub (Completo)
 
 - [URL VERCEL](https://kenzie-hub-toledomg.vercel.app/)
 
